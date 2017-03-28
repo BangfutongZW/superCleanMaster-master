@@ -26,6 +26,7 @@ import com.yzy.supercleanmaster.fragment.SettingsFragment;
 import com.yzy.supercleanmaster.utils.SystemBarTintManager;
 import com.yzy.supercleanmaster.utils.T;
 import com.yzy.supercleanmaster.utils.UIElementsHelper;
+import com.igexin.sdk.PushManager;
 
 import java.util.Date;
 
@@ -57,10 +58,12 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // com.getui.demo.DemoPushService 为第三自定义推送服务
+        PushManager.getInstance().initialize(this.getApplicationContext(), com.getui.service.PushService.class);
+        PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), com.getui.service.IntentService.class);
         mFragmentContainerView = (View) findViewById(R.id.navigation_drawer);
         mTitle = getTitle();
-       applyKitKatTranslucency();
+        applyKitKatTranslucency();
 
         onNavigationDrawerItemSelected(0);
         initDrawer();
