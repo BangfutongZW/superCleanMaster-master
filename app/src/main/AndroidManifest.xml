@@ -91,6 +91,11 @@
             android:name=".ui.RubbishCleanActivity"
             android:label="@string/app_rublish_clean"
             android:theme="@style/MyTranslucentAppTheme"></activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.yzy.supercleanmaster.ui.AlarmListActivity"
+            android:label="@string/app_rublish_clean"
+            android:theme="@style/MyTranslucentAppTheme"></activity>
 
         <activity
             android:screenOrientation="portrait"

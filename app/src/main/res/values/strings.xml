@@ -10,7 +10,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="app_memory_clean">运行动态</string>
-    <string name="app_rublish_clean">实时报警</string>
+    <string name="app_rublish_clean">报警信息</string>
     <string name="app_autostart_manage">巡检保养</string>
     <string name="app_software_manage">软件管理</string>
     <string name="cleaned">清理垃圾 (<xliff:g id="memory">%1$s</xliff:g>)</string>

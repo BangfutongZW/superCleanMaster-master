@@ -12,6 +12,7 @@ import com.umeng.update.UmengUpdateAgent;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseFragment;
 import com.yzy.supercleanmaster.model.SDCardInfo;
+import com.yzy.supercleanmaster.ui.AlarmListActivity;
 import com.yzy.supercleanmaster.ui.AutoStartManageActivity;
 import com.yzy.supercleanmaster.ui.MemoryCleanActivity;
 import com.yzy.supercleanmaster.ui.RubbishCleanActivity;
@@ -151,7 +152,7 @@ public class MainFragment extends BaseFragment {
 
     @OnClick(R.id.card2)
     void rubbishClean() {
-        startActivity(RubbishCleanActivity.class);
+        startActivity(AlarmListActivity.class);
     }
 
 
