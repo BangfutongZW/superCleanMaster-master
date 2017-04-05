@@ -12,9 +12,9 @@ android {
         versionName "1.0"
 
         manifestPlaceholders = [
-                GETUI_APP_ID : "JVihp5J4Es71ZGDe2sSg96",
-                GETUI_APP_KEY : "6a43EIrKA78ZixFjxPaRv4",
-                GETUI_APP_SECRET : "gfIlETSaKa7JLqcfnUToa3"
+                GETUI_APP_ID    : "JVihp5J4Es71ZGDe2sSg96",
+                GETUI_APP_KEY   : "6a43EIrKA78ZixFjxPaRv4",
+                GETUI_APP_SECRET: "gfIlETSaKa7JLqcfnUToa3"
         ]
     }
     buildTypes {
@@ -27,15 +27,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.jakewharton:butterknife:6.0.0'
-    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
-    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
-    compile 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
-    compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'com.github.gabrielemariotti.changeloglib:library:1.5.2'
-    compile 'com.hannesdorfmann.smoothprogressbar:library:1.0.0'
-    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.0'
     compile project(':library')
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/umeng-update-v2.5.0.jar')
@@ -45,7 +36,17 @@ dependencies {
     compile files('libs/SocialSDK_laiwang_2.jar')
     compile files('libs/SocialSDK_QQZone_1.jar')
     compile files('libs/GetuiSDK2.10.2.0.jar')
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/GetuiSDK2.10.2.0.jar')
     compile 'com.android.support:support-v4'
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.jakewharton:butterknife:6.0.0'
+    compile 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
+    compile 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.github.gabrielemariotti.changeloglib:library:1.5.2'
+    compile 'com.hannesdorfmann.smoothprogressbar:library:1.0.0'
+    compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.0'
+    compile files('libs/zxing.jar')
 }

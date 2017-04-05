@@ -23,6 +23,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
+   <!-- <uses-permission android:name="android.permission.DEVICE_POWER"/>-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+
     <!-- 个推SDK权限配置开始 -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <!-- ⽀支持iBeancon 需要蓝⽛牙权限 -->
@@ -117,6 +124,13 @@
             android:screenOrientation="portrait"
             android:name=".ui.AboutActivity"
             android:theme="@style/MyTranslucentAppTheme"></activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ui.SaomActivity"
+            android:theme="@style/MyTranslucentAppTheme"></activity>
+        <activity android:name="com.google.zxing.ui.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"></activity>
 
         <service
             android:name=".service.CleanerService"

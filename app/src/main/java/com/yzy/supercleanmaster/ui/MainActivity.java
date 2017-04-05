@@ -2,6 +2,7 @@ package com.yzy.supercleanmaster.ui;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.yzy.supercleanmaster.base.ActivityTack;
 import com.yzy.supercleanmaster.base.BaseActivity;
 import com.yzy.supercleanmaster.fragment.MainFragment;
 import com.yzy.supercleanmaster.fragment.NavigationDrawerFragment;
+import com.yzy.supercleanmaster.fragment.PostAccidentFragment;
 import com.yzy.supercleanmaster.fragment.RelaxFragment;
 import com.yzy.supercleanmaster.fragment.SettingsFragment;
 import com.yzy.supercleanmaster.utils.SystemBarTintManager;
@@ -213,6 +215,12 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
 
                 closeDrawer();
                 SettingsFragment.launch(MainActivity.this);
+                break;
+            case 3:
+                closeDrawer();
+                Intent intent=new Intent(MainActivity.this,SaomActivity.class);
+                startActivity(intent);
+
                 break;
 
             // fragment = new SettingsFragment();

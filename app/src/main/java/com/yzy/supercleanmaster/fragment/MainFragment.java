@@ -16,6 +16,7 @@ import com.yzy.supercleanmaster.ui.AlarmListActivity;
 import com.yzy.supercleanmaster.ui.AutoStartManageActivity;
 import com.yzy.supercleanmaster.ui.MemoryCleanActivity;
 import com.yzy.supercleanmaster.ui.RubbishCleanActivity;
+import com.yzy.supercleanmaster.ui.SaomActivity;
 import com.yzy.supercleanmaster.ui.SoftwareManageActivity;
 import com.yzy.supercleanmaster.utils.AppUtil;
 import com.yzy.supercleanmaster.utils.StorageUtil;
@@ -158,7 +159,7 @@ public class MainFragment extends BaseFragment {
 
     @OnClick(R.id.card3)
     void AutoStartManage() {
-        startActivity(AutoStartManageActivity.class);
+        startActivity(SaomActivity.class);
     }
 
     @OnClick(R.id.card4)
