@@ -5,15 +5,17 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.zxing.ui.CaptureActivity;
 import com.yzy.supercleanmaster.R;
+import com.yzy.supercleanmaster.base.BaseActivity;
 
 
-public class SaomActivity extends Activity {
+public class SaomActivity extends BaseActivity {
     TextView scan_tv;
     Button scan_btn;
 
@@ -37,13 +39,6 @@ public class SaomActivity extends Activity {
         });
     }
 
-   /* @OnClick(R.id.scan_btn)
-    void clickscan(){
-        Log.e("baoshi","start");
-        Intent intent=new Intent(SaomActivity.this, CaptureActivity.class);
-        startActivityForResult(intent,0);
-    };*/
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -53,7 +48,18 @@ public class SaomActivity extends Activity {
                 String content=data.getStringExtra("scan_result");
 
                 scan_tv.setText("解码结果： \n" + content);
+
+
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

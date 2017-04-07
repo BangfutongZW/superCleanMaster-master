@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -101,9 +102,18 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
     private void getListData() {
         //String posturls = Constant.TestRUL+"allCust.do";
         Log.v("tagzw", "getListData ");
-        String posturls = "http://192.168.99.22:8080/S2SH/todayalarmld.do";
+        String posturls = "http://127.0.0.1:8080/S2SH/todayalarmld.do";
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
