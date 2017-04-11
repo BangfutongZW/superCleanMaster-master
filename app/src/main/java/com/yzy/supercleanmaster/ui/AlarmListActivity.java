@@ -101,8 +101,7 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
 
     private void getListData() {
         //String posturls = Constant.TestRUL+"allCust.do";
-        Log.v("tagzw", "getListData ");
-        String posturls = "http://127.0.0.1:8080/S2SH/todayalarmld.do";
+        String posturls = "http://119.23.37.145:8080/S2SH/todayalarmld.do";
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();

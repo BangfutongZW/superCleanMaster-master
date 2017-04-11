@@ -2,7 +2,10 @@ package com.yzy.supercleanmaster.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +22,15 @@ import com.yzy.supercleanmaster.ui.RubbishCleanActivity;
 import com.yzy.supercleanmaster.ui.SaomActivity;
 import com.yzy.supercleanmaster.ui.SoftwareManageActivity;
 import com.yzy.supercleanmaster.utils.AppUtil;
+import com.yzy.supercleanmaster.utils.HttpTool;
 import com.yzy.supercleanmaster.utils.StorageUtil;
 import com.yzy.supercleanmaster.widget.circleprogress.ArcProgress;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -45,6 +54,26 @@ public class MainFragment extends BaseFragment {
     private Timer timer;
     private Timer timer2;
 
+    Handler sHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            String msgStr=null;
+            msgStr= (String) msg.obj;
+
+            Log.e("fuzai",msgStr);
+
+            try {
+                JSONObject obj = new JSONObject("{\"x\":\"46.42\"}");
+                String fuzai=obj.getString("x");
+                Log.e("fuzaiData",fuzai);
+                fillData(Double.parseDouble(fuzai));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            super.handleMessage(msg);
+        }
+    };
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -62,17 +91,23 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        fillData();
-    }
+        initData();
 
+    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
         UmengUpdateAgent.update(getActivity());
     }
+    private void initData() {
+        String posturls = "http://119.23.37.145:8080/S2SH/nowfuzaild.do";
+        HttpTool tol = new HttpTool(posturls);
+        tol.setHandler(sHandler);
+        new Thread(tol).start();
+    }
 
-    private void fillData() {
+    private void fillData(double fuzai) {
         // TODO Auto-generated method stub
         timer = null;
         timer2 = null;
@@ -82,7 +117,8 @@ public class MainFragment extends BaseFragment {
 
         long l = AppUtil.getAvailMemory(mContext);
         long y = AppUtil.getTotalMemory(mContext);
-        final double x = (((y - l) / (double) y) * 100);
+        //final double x = (((y - l) / (double) y) * 100);
+        final double x=fuzai;
         //   arcProcess.setProgress((int) x);
 
         arcProcess.setProgress(0);
@@ -118,9 +154,9 @@ public class MainFragment extends BaseFragment {
             TotalBlocks = mSystemInfo.total;
         }
 
-        final double percentStore = (((TotalBlocks - nAvailaBlock) / (double) TotalBlocks) * 100);
+        final double percentStore = fuzai;
 
-        capacity.setText(StorageUtil.convertStorage(TotalBlocks - nAvailaBlock) + "/" + StorageUtil.convertStorage(TotalBlocks));
+        //capacity.setText(StorageUtil.convertStorage(TotalBlocks - nAvailaBlock) + "/" + StorageUtil.convertStorage(TotalBlocks));
         arcStore.setProgress(0);
 
         timer2.schedule(new TimerTask() {
