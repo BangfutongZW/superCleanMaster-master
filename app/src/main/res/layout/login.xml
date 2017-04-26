@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    
+   android:background="@drawable/bg"
+    >
+
+ 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       	android:layout_marginLeft="10dp"
+       	android:layout_marginRight="10dp"
+       	
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/loginmain"
+         >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/input_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入用户名"
+                android:imeOptions="actionDone"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="15sp" />
+             <Button
+                android:id="@+id/button_clear01"
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:background="@drawable/icon_clear"
+                android:visibility="invisible"
+                android:layout_marginRight="8dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/input_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:password="true"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入密码"
+                android:imeOptions="actionDone"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="15sp" />
+             <Button
+                android:id="@+id/button_clear02"
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:background="@drawable/icon_clear"
+                android:visibility="invisible"
+                android:layout_marginRight="8dip" />
+        </LinearLayout>
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="90dp"
+            android:text="记住密码"
+            android:textColor="@color/textcolor_mine_normal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <!--<Button
+                android:id="@+id/login"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="200dp"
+                android:text="登  录"
+                android:background="@drawable/button"/>-->
+            <Button
+                android:id="@+id/login"
+                android:layout_width="100.0dip"
+                android:layout_height="40.0dip"
+                android:layout_marginBottom="13.0dip"
+                android:layout_marginTop="13.0dip"
+                android:layout_marginLeft="220dp"
+                android:background="@drawable/selector_btn_login"
+                android:text="登录"
+                android:textColor="@color/white"
+                android:textSize="18.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+    
+<RelativeLayout  
+      android:layout_width="fill_parent"  
+      android:layout_height="fill_parent"
+       >  
+      
+<ImageView
+    android:id="@+id/miniTwitter_logo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginBottom="25dp"
+    android:layout_marginRight="25dp"
+    android:src="@drawable/applogo3" />
+     
+</RelativeLayout>
+
+    
+
+</LinearLayout>

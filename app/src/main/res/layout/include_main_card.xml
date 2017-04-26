@@ -22,7 +22,7 @@
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                card:card_name="运行动态"
+                card:card_name="设备状态"
                 card:card_image="@drawable/card_icon_speedup" />
 
 
@@ -44,7 +44,7 @@
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                card:card_name="实时报警"
+                card:card_name="报警信息"
                 card:card_image="@drawable/card_icon_trash" />
         </RelativeLayout>
     </LinearLayout>

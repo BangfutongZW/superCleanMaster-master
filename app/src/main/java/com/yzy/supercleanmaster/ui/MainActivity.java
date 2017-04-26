@@ -2,7 +2,9 @@ package com.yzy.supercleanmaster.ui;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
@@ -25,6 +28,7 @@ import com.yzy.supercleanmaster.fragment.NavigationDrawerFragment;
 import com.yzy.supercleanmaster.fragment.PostAccidentFragment;
 import com.yzy.supercleanmaster.fragment.RelaxFragment;
 import com.yzy.supercleanmaster.fragment.SettingsFragment;
+import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.SystemBarTintManager;
 import com.yzy.supercleanmaster.utils.T;
 import com.yzy.supercleanmaster.utils.UIElementsHelper;
@@ -54,6 +58,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
 
     MainFragment mMainFragment;
     RelaxFragment mRelaxFragment;
+    private Button btn_home_login;
     public static final long TWO_SECOND = 2 * 1000;
     long preTime;
     @Override
@@ -67,12 +72,34 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         mTitle = getTitle();
         applyKitKatTranslucency();
 
+        inithomelogin(mFragmentContainerView);
+
         onNavigationDrawerItemSelected(0);
         initDrawer();
 
 
     }
-
+    private void inithomelogin(View v){
+        btn_home_login=(Button) v.findViewById(R.id.btn_home_login);
+        if(Constants.ISLOGIN){
+            btn_home_login.setText("退出登录");
+        }else {
+            btn_home_login.setText("登录");
+        }
+        btn_home_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Constants.ISLOGIN){
+                    Constants.ISLOGIN=false;
+                    btn_home_login.setText("登录");
+                    SharedPreferences sp=getSharedPreferences("saveuser", Context.MODE_WORLD_READABLE);
+                    sp.edit().putBoolean("ISCHECK", false).commit();
+                }else {
+                    startActivity(LoginActivity.class);
+                }
+            }
+        });
+    }
 
     private void initDrawer() {
         // TODO Auto-generated method stub

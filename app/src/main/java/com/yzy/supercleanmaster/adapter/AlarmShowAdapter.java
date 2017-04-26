@@ -71,7 +71,11 @@ public class AlarmShowAdapter extends BaseAdapter {
             //holder.appIcon.setImageDrawable(item.getApplicationIcon());
             holder.appName.setText(item.getTagName());
             holder.size.setText(item.getEventTime());
-            holder.packageName = item.getEventType();
+            if(item.getEventType().equals("0")){
+                holder.appIcon.setImageResource(R.drawable.warming);
+            }else if(item.getEventType().equals("1")){
+                holder.appIcon.setImageResource(R.drawable.unwarming);
+            };
         }
         return convertView;
     }

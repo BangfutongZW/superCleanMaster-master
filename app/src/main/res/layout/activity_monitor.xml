@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_monitor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:orientation="vertical"
+    tools:context="com.yzy.supercleanmaster.ui.MonitorActivity">
+    <LinearLayout
+        android:id="@+id/llyout_my_coupon_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <View
+            android:layout_width="0.3dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7" />
+        <TextView
+            android:id="@+id/tv_not_spending"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_my_coupon_tab"
+            android:gravity="center"
+            android:onClick="notSpending"
+            android:text="配电"
+            android:textColor="#898787" />
+        <View
+            android:layout_width="0.3dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7" />
+        <TextView
+            android:id="@+id/tv_yet_spent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_my_coupon_tab"
+            android:gravity="center"
+            android:onClick="yetSpwnt"
+            android:text="空调"
+            android:textColor="#898787" />
+        <View
+            android:layout_width="0.3dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7" />
+        <TextView
+            android:id="@+id/tv_nh_spent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_my_coupon_tab"
+            android:gravity="center"
+            android:onClick="nhSpwnt"
+            android:text="能耗"
+            android:textColor="#898787" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_tabLine"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:contentDescription="@null"
+        android:scaleType="matrix" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_marginBottom="5dp"
+        android:background="#d7d7d7" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_coupon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+
+
+</LinearLayout>

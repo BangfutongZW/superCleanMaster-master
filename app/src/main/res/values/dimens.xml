@@ -40,4 +40,8 @@
     <dimen name="text_md">11.0sp</dimen>
     <dimen name="text_lg">17.0sp</dimen>
     <dimen name="text_xl">125.0sp</dimen>
+
+    <dimen name="loginingdlg_height">42dp</dimen>
+    <dimen name="loginingdlg_lr_margin">10dp</dimen>
+    <dimen name="loginingdlg_top_margin">20dp</dimen>
 </resources>

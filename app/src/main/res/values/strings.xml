@@ -12,12 +12,18 @@
     <string name="app_memory_clean">运行动态</string>
     <string name="app_rublish_clean">报警信息</string>
     <string name="app_autostart_manage">巡检保养</string>
-    <string name="app_software_manage">软件管理</string>
+    <string name="app_software_manage">门禁管理</string>
     <string name="cleaned">清理垃圾 (<xliff:g id="memory">%1$s</xliff:g>)</string>
     <string name="empty_cache">缓存为空.</string>
     <string name="scanning">扫描中…</string>
     <string name="scanning_m_of_n">扫描中 %1$d/%2$d</string>
     <string name="software_top_text">已安装%1$s款软件,占有存储空间%2$s</string>
+
+    <string name="idtxthint">用户名</string>
+    <string name="pwdtxthint">密码</string>
+    <string name="loginbtntext">登录</string>
+    <string name="forgot_pwd">忘记密码？</string>
+    <string name="loading">正在登录</string>
 
 
     <string name="category_other">其他</string>
@@ -36,4 +42,12 @@
         由于时间仓促，错误与疏忽之处在所难免,\
         如果各位亲能给出宝贵的建议与指点,那将是极好的哦！么么哒！</string>
     <string name="all_rights_reserved">Copyright © 2012-2015 zaiyong. All Rights Reserved.</string>
+    <string name="title_activity_run_state">RunStateActivity</string>
+    <string name="title_activity_monitor">MonitorActivity</string>
+    <string name="title_activity_check">巡检保养</string>
+    <string name="title_activity_repot">现场报告</string>
+    <string name="title_activity_xjplay">XjplayActivity</string>
+    <string name="title_activity_longin">用户登录</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_user">UserActivity</string>
 </resources>

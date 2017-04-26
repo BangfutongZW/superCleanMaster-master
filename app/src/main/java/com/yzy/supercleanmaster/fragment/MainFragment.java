@@ -16,12 +16,11 @@ import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseFragment;
 import com.yzy.supercleanmaster.model.SDCardInfo;
 import com.yzy.supercleanmaster.ui.AlarmListActivity;
-import com.yzy.supercleanmaster.ui.AutoStartManageActivity;
-import com.yzy.supercleanmaster.ui.MemoryCleanActivity;
-import com.yzy.supercleanmaster.ui.RubbishCleanActivity;
-import com.yzy.supercleanmaster.ui.SaomActivity;
-import com.yzy.supercleanmaster.ui.SoftwareManageActivity;
+import com.yzy.supercleanmaster.ui.CheckActivity;
+import com.yzy.supercleanmaster.ui.DefineActivity;
+import com.yzy.supercleanmaster.ui.LoginActivity;
 import com.yzy.supercleanmaster.utils.AppUtil;
+import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
 import com.yzy.supercleanmaster.utils.StorageUtil;
 import com.yzy.supercleanmaster.widget.circleprogress.ArcProgress;
@@ -29,8 +28,6 @@ import com.yzy.supercleanmaster.widget.circleprogress.ArcProgress;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -61,9 +58,14 @@ public class MainFragment extends BaseFragment {
             msgStr= (String) msg.obj;
 
             Log.e("fuzai",msgStr);
+            if (msgStr != null) {
+                msgStr = msgStr.replaceAll("\ufeff", "");
+                msgStr = msgStr.replace("\\", "");
+            }
+            msgStr = msgStr.substring(msgStr.indexOf("{"),msgStr.lastIndexOf("}")+1);
 
             try {
-                JSONObject obj = new JSONObject("{\"x\":\"46.42\"}");
+                JSONObject obj = new JSONObject(msgStr);
                 String fuzai=obj.getString("x");
                 Log.e("fuzaiData",fuzai);
                 fillData(Double.parseDouble(fuzai));
@@ -183,9 +185,12 @@ public class MainFragment extends BaseFragment {
 
     @OnClick(R.id.card1)
     void speedUp() {
-        startActivity(MemoryCleanActivity.class);
+        if(Constants.ISLOGIN){
+            startActivity(DefineActivity.class);
+        }else {
+            startActivity(LoginActivity.class);
+        }
     }
-
 
     @OnClick(R.id.card2)
     void rubbishClean() {
@@ -195,12 +200,12 @@ public class MainFragment extends BaseFragment {
 
     @OnClick(R.id.card3)
     void AutoStartManage() {
-        startActivity(SaomActivity.class);
+        startActivity(CheckActivity.class);
     }
 
     @OnClick(R.id.card4)
     void SoftwareManage() {
-        startActivity(SoftwareManageActivity.class);
+        startActivity(LoginActivity.class);
     }
 
     @Override

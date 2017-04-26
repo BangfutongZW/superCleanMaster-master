@@ -3,16 +3,24 @@
 
     <item name="green" type="color">#FF3BBD79</item>
     <item name="gray" type="color">#FF323A45</item>
+    <item name="label_define" type="color">#FF36B5E5</item>
+    <item name="label_red" type="color">#FFFF4444</item>
+    <item name="label_text" type="color">#FF898787</item>
+    <item name="gray_back" type="color">#FFF2F2F2</item>
     <item name="gray_drawable" type="drawable">#FF2c5aa9</item>
     <item name="title_bg" type="color" >#FF2c5aa9</item>
     <item name="blue" type="color" >#1d83ce</item>
 
     <drawable name="transparent">#00000000</drawable>
     <color name="white">#FFFFFF</color>
+    <color name="yello">#FFFFAD55</color>
+    <color name="blue_check">#FF47B3DA</color>
+    <color name="yello_text">#FFF9FD01</color>
 
     <color name="text_color">#414141</color>
     <color name="ldrawer_color">#FFFFFF</color>
     <color name="transparent">#00000000</color>
+    <color name="drawerlayout_bg_btn_p">#ff0061bc</color>
 
     <item name="drawer_bg_color_normal" type="color">#00ffffff</item>
     <item name="drawer_bg_color_press" type="color">#ffeeeeee</item>
@@ -59,6 +67,10 @@
     <color name="viewfinder_frame">#ff000000</color>
     <color name="viewfinder_laser">#ffff0000</color>
     <color name="viewfinder_mask">#60000000</color>
+
+    <color name="textcolor_mine_normal">#666666</color>
+    <color name="textcolor_mine_red">#f56a30</color>
+    <color name="details">#898787</color>
 
     <integer-array name="gplus_colors">
         <item>@color/gplus_color_1</item>

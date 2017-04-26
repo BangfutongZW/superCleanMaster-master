@@ -17,6 +17,7 @@ import com.yzy.supercleanmaster.base.BaseActivity;
 
 public class SaomActivity extends BaseActivity {
     TextView scan_tv;
+    Button chart_btn;
     Button scan_btn;
 
     private static final String DECODED_CONTENT_KEY = "codedContent";
@@ -28,15 +29,25 @@ public class SaomActivity extends BaseActivity {
         setContentView(R.layout.activity_saom);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         scan_btn=(Button)findViewById(R.id.scan_btn);
+        chart_btn=(Button)findViewById(R.id.chart_btn);
         scan_tv=(TextView)findViewById(R.id.scan_tv);
         scan_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.e("baoshi","start");
-               Intent intent=new Intent(SaomActivity.this, CaptureActivity.class);
+                Intent intent=new Intent(SaomActivity.this, CaptureActivity.class);
                 startActivityForResult(intent,0);
             }
         });
+        chart_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("baoshi","start");
+                Intent intent=new Intent(SaomActivity.this, RunStateActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
