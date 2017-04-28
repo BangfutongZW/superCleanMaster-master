@@ -48,6 +48,6 @@
     <string name="title_activity_repot">现场报告</string>
     <string name="title_activity_xjplay">XjplayActivity</string>
     <string name="title_activity_longin">用户登录</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">用户登录</string>
     <string name="title_activity_user">UserActivity</string>
 </resources>

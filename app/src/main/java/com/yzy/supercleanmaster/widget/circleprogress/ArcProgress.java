@@ -42,8 +42,8 @@ public class ArcProgress extends View {
 
 	private float arcBottomHeight;
 
-	private final int default_finished_color = Color.WHITE;
-	private final int default_unfinished_color = Color.rgb(72, 106, 176);
+	private final int default_finished_color = Color.rgb(66, 145, 241);
+	private final int default_unfinished_color = Color.rgb(204, 204, 204);
 	private final int default_text_color = Color.rgb(66, 145, 241);
 	private final float default_suffix_text_size;
 	private final float default_suffix_padding;

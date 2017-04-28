@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/card_image"
         android:id="@+id/card_name"
-        android:textColor="#000000"
+        android:textColor="@color/label_text"
         android:textSize="@dimen/text_size_middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

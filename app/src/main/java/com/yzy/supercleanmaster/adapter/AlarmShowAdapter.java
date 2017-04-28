@@ -53,11 +53,10 @@ public class AlarmShowAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if (convertView == null) {
-            convertView = infater.inflate(R.layout.listview_rublish_clean,
+            convertView = infater.inflate(R.layout.recycler_row,
                     parent, false);
             holder = new ViewHolder();
-            holder.appIcon = (ImageView) convertView
-                    .findViewById(R.id.app_icon);
+            holder.mainText=(TextView)convertView.findViewById(R.id.mainText);
             holder.appName = (TextView) convertView
                     .findViewById(R.id.app_name);
             holder.size = (TextView) convertView
@@ -72,9 +71,9 @@ public class AlarmShowAdapter extends BaseAdapter {
             holder.appName.setText(item.getTagName());
             holder.size.setText(item.getEventTime());
             if(item.getEventType().equals("0")){
-                holder.appIcon.setImageResource(R.drawable.warming);
+                holder.mainText.setText("报警");
             }else if(item.getEventType().equals("1")){
-                holder.appIcon.setImageResource(R.drawable.unwarming);
+                holder.mainText.setText("报警恢复");
             };
         }
         return convertView;
@@ -82,7 +81,7 @@ public class AlarmShowAdapter extends BaseAdapter {
 
 
     class ViewHolder {
-        ImageView appIcon;
+        TextView mainText;
         TextView appName;
         TextView size;
 

@@ -50,4 +50,5 @@ dependencies {
     compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.0'
     compile files('libs/zxing.jar')
     compile project(':MPChartLib')
+    compile files('libs/effect.jar')
 }

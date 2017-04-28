@@ -16,6 +16,7 @@ import com.yzy.supercleanmaster.adapter.AlarmShowAdapter;
 import com.yzy.supercleanmaster.base.BaseSwipeBackActivity;
 import com.yzy.supercleanmaster.model.AlarmInfo;
 import com.yzy.supercleanmaster.utils.HttpTool;
+import com.yzy.supercleanmaster.widget.textcounter.CounterView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +35,8 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
 
     @InjectView(R.id.alistview)
     ListView mListView;
+    @InjectView(R.id.textCounter)
+    CounterView textCounter;
 
 
 
@@ -46,6 +49,7 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
         public void handleMessage(Message msg) {
 
             String msgStr=null;
+            int recovery =0;
             try {
                 msgStr= URLDecoder.decode((String) msg.obj,"utf-8");
             }catch (UnsupportedEncodingException e){
@@ -62,6 +66,9 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
                     for (int i=0;i<array.length();i++){
                         AlarmInfo a=new AlarmInfo();
                         JSONObject obj=array.getJSONObject(i);
+                        if(obj.getString("eventType").equals("1")){
+                            recovery+=1;
+                        }
                         a.setTagName(obj.getString("tagName"));
                         a.setAlarmValue(obj.getString("alarmValue"));
                         a.setEventTime(obj.getString("eventTime"));
@@ -75,6 +82,7 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
+                textCounter.setText(""+(alist.size()-recovery*2));
                 alarmShowAdapter = new AlarmShowAdapter(mContext,alist);
                 mListView.setAdapter(alarmShowAdapter);
                 super.handleMessage(msg);

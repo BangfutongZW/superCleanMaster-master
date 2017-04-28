@@ -19,7 +19,7 @@
     <dimen name="margin_right">10dp</dimen>
 
     <dimen name="text_size">12sp</dimen>
-    <dimen name="text_size_middle">14sp</dimen>
+    <dimen name="text_size_middle">12sp</dimen>
     <dimen name="text_size_large">16sp</dimen>
     <dimen name="text_size_extr_lagee">18sp</dimen>
     <dimen name="body_padding_medium">10dp</dimen>

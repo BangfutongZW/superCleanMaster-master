@@ -1,6 +1,7 @@
 package com.yzy.supercleanmaster.fragment;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.umeng.update.UmengUpdateAgent;
@@ -24,10 +28,13 @@ import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
 import com.yzy.supercleanmaster.utils.StorageUtil;
 import com.yzy.supercleanmaster.widget.circleprogress.ArcProgress;
+import com.zjf.rieffect.RieffectLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -38,13 +45,24 @@ import butterknife.OnClick;
 
 public class MainFragment extends BaseFragment {
 
-    @InjectView(R.id.arc_store)
-    ArcProgress arcStore;
 
     @InjectView(R.id.arc_process)
     ArcProgress arcProcess;
-    @InjectView(R.id.capacity)
-    TextView capacity;
+    @InjectView(R.id.btn_go_wash_main)
+    Button btn_go_wash_main;
+    @InjectView(R.id.ll_demand)
+    LinearLayout ll_demand;
+    @InjectView(R.id.ll_question)
+    LinearLayout ll_question;
+    @InjectView(R.id.card1)
+    RelativeLayout card1;
+    @InjectView(R.id.card2)
+    RelativeLayout card2;
+    @InjectView(R.id.card3)
+    RelativeLayout card3;
+    @InjectView(R.id.card4)
+    RelativeLayout card4;
+
 
     Context mContext;
 
@@ -86,7 +104,59 @@ public class MainFragment extends BaseFragment {
         ButterKnife.inject(this, view);
         mContext = getActivity();
 
+        List<View> lists = new ArrayList<View>();
+        lists.add(btn_go_wash_main);
+        lists.add(ll_demand);
+        lists.add(ll_question);
+        lists.add(card1);
+        lists.add(card2);
+        lists.add(card3);
+        lists.add(card4);
+        initViewListener(lists);
         return view;
+    }
+    private void initViewListener(List<View> lists)
+    {
+        for(int i = 0; i<lists.size(); ++i){
+            RieffectLayout.on(lists.get(i))
+                    .rippleColor(Color.parseColor("#D3D3D3"))
+                    .rippleAlpha(1.0f)
+                    .rippleHover(true)
+                    .create();
+            lists.get(i).setOnLongClickListener(new myLongClickListener());
+            lists.get(i).setOnClickListener(new myClickListener());
+        }
+    }
+    class myLongClickListener implements View.OnLongClickListener{
+
+        @Override
+        public boolean onLongClick(View view) {
+
+            return false;
+        }
+    }
+    /*class myClickListener implements View.OnClickListener{
+
+    }*/
+    class  myClickListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_go_wash_main:
+                    startActivity(DefineActivity.class);
+                    break;
+                case R.id.ll_demand:
+                    startActivity(AlarmListActivity.class);
+                    break;
+                case R.id.ll_question:
+                    startActivity(CheckActivity.class);
+                    break;
+                default:
+                    break;
+            }
+
+        }
     }
 
 
@@ -143,47 +213,10 @@ public class MainFragment extends BaseFragment {
             }
         }, 50, 20);
 
-        SDCardInfo mSDCardInfo = StorageUtil.getSDCardInfo();
-        SDCardInfo mSystemInfo = StorageUtil.getSystemSpaceInfo(mContext);
-
-        long nAvailaBlock;
-        long TotalBlocks;
-        if (mSDCardInfo != null) {
-            nAvailaBlock = mSDCardInfo.free + mSystemInfo.free;
-            TotalBlocks = mSDCardInfo.total + mSystemInfo.total;
-        } else {
-            nAvailaBlock = mSystemInfo.free;
-            TotalBlocks = mSystemInfo.total;
-        }
-
-        final double percentStore = fuzai;
-
-        //capacity.setText(StorageUtil.convertStorage(TotalBlocks - nAvailaBlock) + "/" + StorageUtil.convertStorage(TotalBlocks));
-        arcStore.setProgress(0);
-
-        timer2.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-
-                        if (arcStore.getProgress() >= (int) percentStore) {
-                            timer2.cancel();
-                        } else {
-                            arcStore.setProgress(arcStore.getProgress() + 1);
-                        }
-
-                    }
-                });
-            }
-        }, 50, 20);
-
 
     }
 
-    @OnClick(R.id.card1)
+    /*@OnClick(R.id.card1)
     void speedUp() {
         if(Constants.ISLOGIN){
             startActivity(DefineActivity.class);
@@ -206,7 +239,7 @@ public class MainFragment extends BaseFragment {
     @OnClick(R.id.card4)
     void SoftwareManage() {
         startActivity(LoginActivity.class);
-    }
+    }*/
 
     @Override
     public void onDestroyView() {
