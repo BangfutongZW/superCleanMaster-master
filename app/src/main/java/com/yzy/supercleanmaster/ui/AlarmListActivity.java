@@ -82,13 +82,16 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
-                textCounter.setText(""+(alist.size()-recovery*2));
+                int size=(alist.size()-recovery*2);
+                if(size<0)size=0;
+                textCounter.setText(""+size);
                 alarmShowAdapter = new AlarmShowAdapter(mContext,alist);
                 mListView.setAdapter(alarmShowAdapter);
-                super.handleMessage(msg);
+
             }else {
                 Toast.makeText(getApplicationContext(), "无记录", Toast.LENGTH_SHORT).show();
             }
+            super.handleMessage(msg);
         }
     };
 

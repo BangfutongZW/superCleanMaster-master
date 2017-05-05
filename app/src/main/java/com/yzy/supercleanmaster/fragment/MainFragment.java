@@ -14,15 +14,20 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.umeng.update.UmengUpdateAgent;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseFragment;
+import com.yzy.supercleanmaster.model.AlarmInfo;
+import com.yzy.supercleanmaster.model.Nownh;
 import com.yzy.supercleanmaster.model.SDCardInfo;
 import com.yzy.supercleanmaster.ui.AlarmListActivity;
 import com.yzy.supercleanmaster.ui.CheckActivity;
 import com.yzy.supercleanmaster.ui.DefineActivity;
+import com.yzy.supercleanmaster.ui.GpdActivity;
 import com.yzy.supercleanmaster.ui.LoginActivity;
+import com.yzy.supercleanmaster.ui.NhActivity;
 import com.yzy.supercleanmaster.utils.AppUtil;
 import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
@@ -30,9 +35,12 @@ import com.yzy.supercleanmaster.utils.StorageUtil;
 import com.yzy.supercleanmaster.widget.circleprogress.ArcProgress;
 import com.zjf.rieffect.RieffectLayout;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -62,6 +70,18 @@ public class MainFragment extends BaseFragment {
     RelativeLayout card3;
     @InjectView(R.id.card4)
     RelativeLayout card4;
+    @InjectView(R.id.tv_nh)
+    TextView tv_nh;
+    @InjectView(R.id.tv_airnh)
+    TextView tv_airnh;
+    @InjectView(R.id.pd_main_1)
+    TextView pd_main_1;
+    @InjectView(R.id.pd_main_2)
+    TextView pd_main_2;
+    @InjectView(R.id.pd_main_3)
+    TextView pd_main_3;
+    @InjectView(R.id.pd_main_4)
+    TextView pd_main_4;
 
 
     Context mContext;
@@ -93,6 +113,67 @@ public class MainFragment extends BaseFragment {
             super.handleMessage(msg);
         }
     };
+    Handler tHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            String msgStr=null;
+            msgStr= (String) msg.obj;
+
+            Log.e("fuzai",msgStr);
+            if (msgStr != null) {
+                msgStr = msgStr.replaceAll("\ufeff", "");
+                msgStr = msgStr.replace("\\", "");
+            }
+            msgStr = msgStr.substring(msgStr.indexOf("["),msgStr.lastIndexOf("]")+1);
+            ArrayList<Nownh> nList=new ArrayList<Nownh>();
+            try {
+                JSONArray array=new JSONArray(msgStr);
+                for (int i=0;i<array.length();i++){
+                    Nownh n=new Nownh();
+                    JSONObject obj=array.getJSONObject(i);
+                    n.setDate(obj.getString("date"));
+                    n.setNh(obj.getInt("nh"));
+                    n.setNhair(obj.getInt("nhair"));
+                    n.setTime(obj.getString("time"));
+                    nList.add(n);
+                    /*a.setState(obj.getString("state"));
+                    alist.add(a);*/
+                }
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            fillNh(nList);
+            super.handleMessage(msg);
+        }
+    };
+    Handler rHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+
+            String msgStr=null;
+            try {
+                msgStr= URLDecoder.decode((String) msg.obj,"utf-8");
+                Log.e("smac",msgStr);
+            }catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            };
+
+            if (msgStr != null&&msgStr.length()>0) {
+
+                msgStr = msgStr.substring(msgStr.indexOf("[")+1,msgStr.lastIndexOf("]"));
+                Log.e("smac",msgStr);
+                String[] sa=msgStr.split(",");
+                for(String a:sa){
+                    updateView(a);
+                }
+            }else {
+                Toast.makeText(getActivity(), "网络连接出错...", Toast.LENGTH_SHORT).show();
+            }
+            super.handleMessage(msg);
+        }
+    };
+
+
 
 
     @Override
@@ -144,13 +225,17 @@ public class MainFragment extends BaseFragment {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.btn_go_wash_main:
-                    startActivity(DefineActivity.class);
+                    //startActivity(DefineActivity.class);
+                    startActivity(NhActivity.class);
                     break;
                 case R.id.ll_demand:
                     startActivity(AlarmListActivity.class);
                     break;
                 case R.id.ll_question:
                     startActivity(CheckActivity.class);
+                    break;
+                case R.id.card1:
+                    startActivity(GpdActivity.class);
                     break;
                 default:
                     break;
@@ -177,6 +262,16 @@ public class MainFragment extends BaseFragment {
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();
+
+        String posturls1 = "http://119.23.37.145:8080/S2SH/nowTotalNhld.do";
+        HttpTool tol1 = new HttpTool(posturls1);
+        tol1.setHandler(tHandler);
+        new Thread(tol1).start();
+
+        String posturls2 = "http://119.23.37.145:8080/S2SH/checkMacld.do";
+        HttpTool tol2 = new HttpTool(posturls2);
+        tol2.setHandler(rHandler);
+        new Thread(tol2).start();
     }
 
     private void fillData(double fuzai) {
@@ -214,6 +309,31 @@ public class MainFragment extends BaseFragment {
         }, 50, 20);
 
 
+    }
+    private void fillNh(ArrayList<Nownh> nList) {
+        int size =nList.size();
+        if(size>0){
+            float nh=nList.get(size-1).getNh()-nList.get(0).getNh();
+            float airnh=nList.get(size-1).getNhair()-nList.get(0).getNhair();
+            tv_nh.setText(""+(int)nh);
+            tv_airnh.setText(""+(int)airnh);
+        }
+    }
+    private void updateView(String a){
+        switch (a){
+            case "1":
+                pd_main_1.setVisibility(View.VISIBLE);
+                break;
+            case "2":
+                pd_main_2.setVisibility(View.VISIBLE);
+                break;
+            case "3":
+                pd_main_3.setVisibility(View.VISIBLE);
+                break;
+            case "4":
+                pd_main_4.setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
     /*@OnClick(R.id.card1)

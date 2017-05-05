@@ -50,4 +50,7 @@
     <string name="title_activity_longin">用户登录</string>
     <string name="title_activity_login">用户登录</string>
     <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_gpd">GpdActivity</string>
+    <string name="title_activity_peidian_action">PeidianActionActivity</string>
+    <string name="title_activity_nh">NhActivity</string>
 </resources>

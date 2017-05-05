@@ -140,6 +140,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyTranslucentAppTheme" />
         <activity
+            android:name=".ui.GpdActivity"
+            android:label="@string/title_activity_gpd"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTranslucentAppTheme" />
+        <activity
             android:name="com.google.zxing.ui.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" />
@@ -291,7 +296,13 @@
             android:label="@string/title_activity_login" />
         <activity
             android:name=".ui.UserActivity"
-            android:label="@string/title_activity_user"></activity>
+            android:label="@string/title_activity_user" />
+        <activity
+            android:name=".ui.PeidianActionActivity"
+            android:label="@string/title_activity_peidian_action" />
+        <activity
+            android:name=".ui.NhActivity"
+            android:label="@string/title_activity_nh"></activity>
     </application>
 
 </manifest>
