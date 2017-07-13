@@ -5,6 +5,8 @@ package com.yzy.supercleanmaster.model;
  */
 
 public class AlarmInfo {
+    private int ID;
+
     private String TagName;
 
     private String AlarmValue;
@@ -18,6 +20,14 @@ public class AlarmInfo {
     private String State;
 
     private String Location;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public String getTagName() {
         return TagName;

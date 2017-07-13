@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yzy.supercleanmaster">
+    package="com.yzy.supercleanmaster"
+    >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -220,6 +221,14 @@
             android:authorities="downloads.${applicationId}"
             android:exported="true"
             android:process=":pushservice" />
+        <!-- 替换成自己的appid -->
+        <receiver
+            android:name=".receiver.PushMsgReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.JVihp5J4Es71ZGDe2sSg96" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name="com.igexin.sdk.GActivity"
@@ -243,6 +252,9 @@
         <service
             android:name="com.umeng.update.net.DownloadingService"
             android:process=":DownloadingService" />
+        <service
+            android:name=".service.UpdateVersionService"
+            android:process=":UpdateVersionService" />
 
         <activity
             android:name="com.umeng.update.UpdateDialogActivity"
@@ -302,7 +314,28 @@
             android:label="@string/title_activity_peidian_action" />
         <activity
             android:name=".ui.NhActivity"
-            android:label="@string/title_activity_nh"></activity>
+            android:label="@string/title_activity_nh" />
+        <activity
+            android:name=".ui.ApdActivity"
+            android:label="@string/title_activity_apd" />
+        <activity
+            android:name=".ui.NhBasicActivity"
+            android:label="@string/title_activity_nh_basic" />
+        <activity
+            android:name=".ui.WaterActivity"
+            android:label="@string/title_activity_water" />
+        <activity
+            android:name=".ui.ApeidianActionActivity"
+            android:label="@string/title_activity_air" />
+        <activity
+            android:name=".ui.SettingActivity"
+            android:label="@string/title_activity_setting" />
+        <activity
+            android:name=".ui.UserInfoActivity"
+            android:label="@string/title_activity_user_info" />
+        <activity
+            android:name=".ui.InspectActivity"
+            android:label="@string/title_activity_inspect"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.yzy.supercleanmaster.ui;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -69,6 +70,7 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
                         if(obj.getString("eventType").equals("1")){
                             recovery+=1;
                         }
+                        a.setID(obj.getInt("ID"));
                         a.setTagName(obj.getString("tagName"));
                         a.setAlarmValue(obj.getString("alarmValue"));
                         a.setEventTime(obj.getString("eventTime"));
@@ -87,6 +89,12 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
                 textCounter.setText(""+size);
                 alarmShowAdapter = new AlarmShowAdapter(mContext,alist);
                 mListView.setAdapter(alarmShowAdapter);
+
+                SharedPreferences sp=mContext.getSharedPreferences("saveuser", Context.MODE_WORLD_READABLE);
+                SharedPreferences.Editor editor = sp.edit();
+                int webID=alist.get(0).getID();
+                editor.putString("ID", webID+"");
+                editor.commit();
 
             }else {
                 Toast.makeText(getApplicationContext(), "无记录", Toast.LENGTH_SHORT).show();

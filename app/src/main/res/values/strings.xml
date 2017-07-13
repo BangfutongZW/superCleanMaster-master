@@ -37,10 +37,7 @@
 
     <string name="title_settings">设置</string>
      <string name="app_information">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\
-        亲！么么！一键清理 开源版 。高效、快速、准确的清理手机垃圾，提升手机运行速度。\
-         源代码开源，保证安全
-        由于时间仓促，错误与疏忽之处在所难免,\
-        如果各位亲能给出宝贵的建议与指点,那将是极好的哦！么么哒！</string>
+        深圳市励科机电科技工程有限公司主要从事高端写字楼、商业综合体等物业机电设施设备运维管理，具有该行业多年管理经验和技术累积。公司业务类别分为电梯事业部、运维事业部和智能化事业部，主要从事承接包括：电梯维修保养、机电设备维护管理和自主研发LK-Econ楼宇智能管理系统三部分业务。</string>
     <string name="all_rights_reserved">Copyright © 2012-2015 zaiyong. All Rights Reserved.</string>
     <string name="title_activity_run_state">RunStateActivity</string>
     <string name="title_activity_monitor">MonitorActivity</string>
@@ -50,7 +47,14 @@
     <string name="title_activity_longin">用户登录</string>
     <string name="title_activity_login">用户登录</string>
     <string name="title_activity_user">UserActivity</string>
-    <string name="title_activity_gpd">GpdActivity</string>
-    <string name="title_activity_peidian_action">PeidianActionActivity</string>
-    <string name="title_activity_nh">NhActivity</string>
+    <string name="title_activity_gpd">供配电运行情况</string>
+    <string name="title_activity_peidian_action">变压器信息</string>
+    <string name="title_activity_nh">能耗详情</string>
+    <string name="title_activity_apd">空调主机</string>
+    <string name="title_activity_nh_basic">能耗信息</string>
+    <string name="title_activity_water">给排水信息</string>
+    <string name="title_activity_air">空调信息</string>
+    <string name="title_activity_setting">设置</string>
+    <string name="title_activity_user_info">账户管理</string>
+    <string name="title_activity_inspect">InspectActivity</string>
 </resources>

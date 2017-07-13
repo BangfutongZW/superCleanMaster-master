@@ -91,8 +91,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             VersionFragment.launch(getActivity());
         } else if ("pGithub".equals(preference.getKey())) {
             Utils.launchBrowser(getActivity(), "https://github.com/joyoyao/superCleanMaster");
-        }else if ("pGrade".equals(preference.getKey())) {
-            startMarket();
         }else if ("pShare".equals(preference.getKey())) {
                 shareMyApp();
         }
@@ -143,7 +141,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
 
-    public  void startMarket() {
+    /*public  void startMarket() {
         Uri uri = Uri.parse(String.format("market://details?id=%s", AppUtil.getPackageInfo(getActivity()).packageName));
         if (Utils.isIntentSafe(getActivity(), uri)) {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -155,5 +153,5 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             T.showLong(getActivity(),"无法打开应用市场");
 
         }
-    }
+    }*/
 }

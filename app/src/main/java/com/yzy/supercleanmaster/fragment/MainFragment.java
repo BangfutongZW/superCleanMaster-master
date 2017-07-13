@@ -1,6 +1,7 @@
 package com.yzy.supercleanmaster.fragment;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jauker.widget.BadgeView;
 import com.umeng.update.UmengUpdateAgent;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseFragment;
@@ -23,11 +26,16 @@ import com.yzy.supercleanmaster.model.AlarmInfo;
 import com.yzy.supercleanmaster.model.Nownh;
 import com.yzy.supercleanmaster.model.SDCardInfo;
 import com.yzy.supercleanmaster.ui.AlarmListActivity;
+import com.yzy.supercleanmaster.ui.ApdActivity;
 import com.yzy.supercleanmaster.ui.CheckActivity;
 import com.yzy.supercleanmaster.ui.DefineActivity;
 import com.yzy.supercleanmaster.ui.GpdActivity;
 import com.yzy.supercleanmaster.ui.LoginActivity;
 import com.yzy.supercleanmaster.ui.NhActivity;
+import com.yzy.supercleanmaster.ui.NhBasicActivity;
+import com.yzy.supercleanmaster.ui.RepotActivity;
+import com.yzy.supercleanmaster.ui.SaomActivity;
+import com.yzy.supercleanmaster.ui.WaterActivity;
 import com.yzy.supercleanmaster.utils.AppUtil;
 import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
@@ -82,12 +90,22 @@ public class MainFragment extends BaseFragment {
     TextView pd_main_3;
     @InjectView(R.id.pd_main_4)
     TextView pd_main_4;
-
+    @InjectView(R.id.iv_redbag)
+    ImageView iv_redbag;
+    @InjectView(R.id.iv_car_logo)
+    ImageView iv_car_logo;
+    @InjectView(R.id.tv_kt_mian1)
+    TextView tv_kt_mian1;
+    @InjectView(R.id.tv_kt_mian2)
+    TextView tv_kt_mian2;
+    @InjectView(R.id.tv_kt_mian3)
+    TextView tv_kt_mian3;
 
     Context mContext;
+    BadgeView badgeView1;
+    BadgeView badgeView2;
 
     private Timer timer;
-    private Timer timer2;
 
     Handler sHandler=new Handler(){
         @Override
@@ -172,8 +190,58 @@ public class MainFragment extends BaseFragment {
             super.handleMessage(msg);
         }
     };
+    Handler yHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
 
+            String msgStr=null;
+            try {
+                msgStr= URLDecoder.decode((String) msg.obj,"utf-8");
+                Log.e("smac",msgStr);
+            }catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            };
 
+            if (msgStr != null&&msgStr.length()>0) {
+
+                msgStr = msgStr.substring(msgStr.indexOf("[")+1,msgStr.lastIndexOf("]"));
+                Log.e("amac",msgStr);
+                String[] sa=msgStr.split(",");
+                for(String a:sa){
+                    updateAirView(a);
+                }
+            }else {
+                Toast.makeText(getActivity(), "无运行主机...", Toast.LENGTH_SHORT).show();
+            }
+            super.handleMessage(msg);
+        }
+    };
+    Handler oHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.e("baojcount","hand");
+            String msgStr=null;
+            msgStr= (String) msg.obj;
+
+            Log.e("baojcount",msgStr);
+            if (msgStr != null) {
+                msgStr = msgStr.replaceAll("\ufeff", "");
+                msgStr = msgStr.replace("\\", "");
+            }
+            msgStr = msgStr.substring(msgStr.indexOf("{"),msgStr.lastIndexOf("}")+1);
+
+            try {
+                JSONObject obj = new JSONObject(msgStr);
+                String count=obj.getString("x");
+                Log.e("baojcount",count);
+                badgeView1.setBadgeCount(Integer.parseInt(count));
+                //fillData(Double.parseDouble(fuzai));
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+            super.handleMessage(msg);
+        }
+    };
 
 
     @Override
@@ -184,6 +252,12 @@ public class MainFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.inject(this, view);
         mContext = getActivity();
+
+        badgeView1 = new com.jauker.widget.BadgeView(mContext);
+        badgeView1.setTargetView(iv_redbag);
+        badgeView2 = new com.jauker.widget.BadgeView(mContext);
+        badgeView2.setTargetView(iv_car_logo);
+        badgeView2.setBadgeCount(1);
 
         List<View> lists = new ArrayList<View>();
         lists.add(btn_go_wash_main);
@@ -226,16 +300,26 @@ public class MainFragment extends BaseFragment {
             switch (v.getId()){
                 case R.id.btn_go_wash_main:
                     //startActivity(DefineActivity.class);
-                    startActivity(NhActivity.class);
+                    startActivity(NhBasicActivity.class);
                     break;
                 case R.id.ll_demand:
                     startActivity(AlarmListActivity.class);
                     break;
                 case R.id.ll_question:
-                    startActivity(CheckActivity.class);
+                    startActivity(RepotActivity.class);
                     break;
                 case R.id.card1:
                     startActivity(GpdActivity.class);
+                    break;
+                case R.id.card2:
+                    startActivity(ApdActivity.class);
+                    break;
+                case R.id.card3:
+                    //Toast.makeText(mContext, "正在开发中...", Toast.LENGTH_SHORT).show();
+                    startActivity(WaterActivity.class);
+                    break;
+                case R.id.card4:
+                    startActivity(SaomActivity.class);
                     break;
                 default:
                     break;
@@ -243,8 +327,6 @@ public class MainFragment extends BaseFragment {
 
         }
     }
-
-
     @Override
     public void onResume() {
         super.onResume();
@@ -272,14 +354,30 @@ public class MainFragment extends BaseFragment {
         HttpTool tol2 = new HttpTool(posturls2);
         tol2.setHandler(rHandler);
         new Thread(tol2).start();
+
+        String posturls3 = "http://119.23.37.145:8080/S2SH/checkAirMacld.do";
+        HttpTool tol3 = new HttpTool(posturls3);
+        tol3.setHandler(yHandler);
+        new Thread(tol3).start();
+
+
+        SharedPreferences sp=mContext.getSharedPreferences("saveuser", Context.MODE_WORLD_READABLE);
+        String id=sp.getString("ID","");
+        if(id==null||id.equals("")){
+            id="2548";
+        }
+        String posturls4 = "http://119.23.37.145:8080/S2SH/alarmcountld.do";
+        posturls4 =posturls4+"?ID="+id;
+        Log.e("paoturl",posturls4);
+        HttpTool tol4 = new HttpTool(posturls4);
+        tol4.setHandler(oHandler);
+        new Thread(tol4).start();
     }
 
     private void fillData(double fuzai) {
         // TODO Auto-generated method stub
         timer = null;
-        timer2 = null;
         timer = new Timer();
-        timer2 = new Timer();
 
 
         long l = AppUtil.getAvailMemory(mContext);
@@ -335,6 +433,19 @@ public class MainFragment extends BaseFragment {
                 break;
         }
     }
+    private void updateAirView(String a){
+        switch (a){
+            case "1":
+                tv_kt_mian1.setVisibility(View.VISIBLE);
+                break;
+            case "2":
+                tv_kt_mian2.setVisibility(View.VISIBLE);
+                break;
+            case "3":
+                tv_kt_mian3.setVisibility(View.VISIBLE);
+                break;
+        }
+    }
 
     /*@OnClick(R.id.card1)
     void speedUp() {
@@ -371,7 +482,6 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         timer.cancel();
-        timer2.cancel();
         super.onDestroy();
     }
 }

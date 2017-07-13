@@ -26,8 +26,6 @@ public class NavigationDrawerFragment extends BaseFragment {
     final int radioIds[] = {
             R.id.radio0,
             R.id.radio1,
-            R.id.radio2,
-            R.id.radio3
 
     };
     RadioButton radios[] = new RadioButton[radioIds.length];

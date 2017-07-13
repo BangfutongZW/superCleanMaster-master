@@ -2,14 +2,19 @@ package com.yzy.supercleanmaster.ui;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,15 +30,22 @@ import com.yzy.supercleanmaster.base.ActivityTack;
 import com.yzy.supercleanmaster.base.BaseActivity;
 import com.yzy.supercleanmaster.fragment.MainFragment;
 import com.yzy.supercleanmaster.fragment.NavigationDrawerFragment;
-import com.yzy.supercleanmaster.fragment.PostAccidentFragment;
 import com.yzy.supercleanmaster.fragment.RelaxFragment;
 import com.yzy.supercleanmaster.fragment.SettingsFragment;
+import com.yzy.supercleanmaster.service.UpdateVersionService;
 import com.yzy.supercleanmaster.utils.Constants;
+import com.yzy.supercleanmaster.utils.HttpTool;
 import com.yzy.supercleanmaster.utils.SystemBarTintManager;
 import com.yzy.supercleanmaster.utils.T;
 import com.yzy.supercleanmaster.utils.UIElementsHelper;
 import com.igexin.sdk.PushManager;
+import com.yzy.supercleanmaster.utils.UpdateUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Date;
 
 import butterknife.InjectView;
@@ -61,6 +73,82 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
     private Button btn_home_login;
     public static final long TWO_SECOND = 2 * 1000;
     long preTime;
+    UpdateUtil util;
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            String msgStr=null;
+
+            try {
+                msgStr= URLDecoder.decode((String) msg.obj,"utf-8");
+                Log.e("version",msgStr);
+            }catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            };
+
+            if (msgStr!= null&&msgStr.length()>10) {
+                msgStr = msgStr.replaceAll("\ufeff", "");
+                msgStr = msgStr.replace("\\", "");
+                msgStr = msgStr.substring(msgStr.indexOf("{"),msgStr.lastIndexOf("}")+1);
+                Log.e("version",msgStr);
+                try {
+                    JSONObject obj=new JSONObject(msgStr);
+                    String code=obj.getString("versionCode");
+                    String versionContent=obj.getString("message");
+                    String currentCode = util.getAppVersion()+"";
+                    final String versionName=obj.getString("versionName");
+                    if(!currentCode.equals(code)){
+                        new AlertDialog.Builder(MainActivity.this).setTitle("版本更新")
+                                .setMessage(versionContent).setNegativeButton("取消", null)
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener(){
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(
+                                                MainActivity.this,
+                                                UpdateVersionService.class);
+                                        intent.putExtra("Key_App_Name",
+                                                "hxUpdate");
+                                        intent.putExtra("Key_Down_Url",
+                                                "http://119.23.37.145:8080/app-release.apk");
+                                        //DLOG.log("" + versionUrl);
+                                        intent.putExtra("Key_Update_Version",
+                                                "励科易控" + versionName
+                                                        + "下载中");
+                                        startService(intent);
+                                    }
+                                    /*@Override
+                                    public void onClick(DialogInterface arg0, int arg1) {
+                                        // TODO Auto-generated method stub
+
+                                        if (!Constant.MUSTUPDATE.equals(versionCode
+                                        )) {
+                                        }
+                                        // UpdateService.mContext =
+                                        // MainFragmentActivity.this;
+                                        Intent intent = new Intent(
+                                                MainActivity.this,
+                                                UpdateVersionService.class);
+                                        intent.putExtra("Key_App_Name",
+                                                "bftUpdate");
+                                        intent.putExtra("Key_Down_Url",
+                                                versionUrl);
+                                        DLOG.log("" + versionUrl);
+                                        intent.putExtra("Key_Update_Version",
+                                                "大喇叭" + versionName
+                                                        + "下载中");
+                                        startService(intent);
+
+                                    }*/
+                                }).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +164,25 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
 
         onNavigationDrawerItemSelected(0);
         initDrawer();
-
+        //检查版本更新
+        util= new UpdateUtil(getApplicationContext());
+        //if ("1".equals(util.getValue("updateflag"))) {
+           // util.setValue("updateflag", "0");
+       //} else {
+            checkAppVersion(util.getAppVersion());
+            // utils.setValue(Constant.UPDATEFLAG, "1");
+        //}
 
     }
+
+    private void checkAppVersion(int appVersion) {
+        Log.e("appVersion",appVersion+"");
+        String posturls = "http://119.23.37.145:8080/S2SH/getversionld.do";
+        HttpTool tol = new HttpTool(posturls);
+        tol.setHandler(handler);
+        new Thread(tol).start();
+    }
+
     private void inithomelogin(View v){
         btn_home_login=(Button) v.findViewById(R.id.btn_home_login);
         if(Constants.ISLOGIN){
@@ -228,26 +332,17 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
 
                 break;
             case 1:
-                closeDrawer();
+                /*closeDrawer();
                 if (mRelaxFragment == null) {
                     mRelaxFragment = new RelaxFragment();
                     transaction.add(R.id.container, mRelaxFragment);
                 } else {
                     transaction.show(mRelaxFragment);
                 }
-                transaction.commit();
-
-                break;
-            case 2:
-
+                transaction.commit();*/
                 closeDrawer();
-                SettingsFragment.launch(MainActivity.this);
-                break;
-            case 3:
-                closeDrawer();
-                Intent intent=new Intent(MainActivity.this,SaomActivity.class);
-                startActivity(intent);
-
+                Intent intent0=new Intent(MainActivity.this,SettingActivity.class);
+                startActivity(intent0);
                 break;
 
             // fragment = new SettingsFragment();

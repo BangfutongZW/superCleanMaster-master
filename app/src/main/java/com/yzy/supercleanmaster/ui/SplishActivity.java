@@ -47,7 +47,7 @@ public class SplishActivity extends BaseActivity {
 
 
         if (!SharedPreferencesUtils.isShortCut(mContext)) {
-            createShortCut();
+            //createShortCut();
         }
 
         initAnim();

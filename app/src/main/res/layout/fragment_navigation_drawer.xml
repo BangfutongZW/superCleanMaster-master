@@ -83,50 +83,12 @@
                 android:gravity="center_vertical|left"
                 android:paddingLeft="17dp"
                 android:paddingRight="0dp"
-                android:text="项目设置"
+                android:text="设置"
                 android:textColor="@drawable/drawer_selector_font"
                 android:textSize="15sp" />
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.70000005dip"
-                android:layout_marginLeft="13.0dip"
-                android:layout_marginRight="13.0dip"
-                android:background="#ffd7d7d7" />
-            <RadioButton
-                android:id="@+id/radio3"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/drawer_selector_bg"
-                android:button="@null"
-                android:drawableLeft="@drawable/erweima_icon_normal"
-                android:drawablePadding="15dp"
-                android:gravity="center_vertical|left"
-                android:paddingLeft="17dp"
-                android:paddingRight="0dp"
-                android:text="快速报事"
-                android:textColor="@drawable/drawer_selector_font"
-                android:textSize="15sp" />
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.70000005dip"
-                android:layout_marginLeft="13.0dip"
-                android:layout_marginRight="13.0dip"
-                android:background="#ffd7d7d7" />
 
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/drawer_selector_bg"
-                android:button="@null"
-                android:drawableLeft="@drawable/drawer_selector_4"
-                android:drawablePadding="15dp"
-                android:gravity="center_vertical|left"
-                android:paddingLeft="17dp"
-                android:paddingRight="0dp"
-                android:text="关于我们"
-                android:textColor="@drawable/drawer_selector_font"
-                android:textSize="15sp" />
+
+
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="0.70000005dip"

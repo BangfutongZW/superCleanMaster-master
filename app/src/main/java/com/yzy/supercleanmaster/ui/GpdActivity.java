@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -70,6 +71,7 @@ public class GpdActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.include_pd_card);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         initData();
     }
     private void initData() {
@@ -135,6 +137,14 @@ public class GpdActivity extends Activity {
             intent.putExtra("index",index);
             startActivity(intent);
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

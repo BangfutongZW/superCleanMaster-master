@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -31,9 +33,20 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class PeidianActionActivity extends Activity {
     private LineChart lineChart;
     private ProgressDialog proDialog;
+
+    public TextView tv_pd_dy;
+
+    public TextView tv_pd_dlA;
+
+    public TextView tv_pd_wd;
+
+    public TextView tv_pd_dd;
+
+    public TextView tv_pd_jx;
     Handler sHandler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -68,7 +81,7 @@ public class PeidianActionActivity extends Activity {
                     e.printStackTrace();
                 }
                 initChart(lineChart,list);
-
+                initSummary(list);
             }else {
                 Toast.makeText(getApplicationContext(), "网络连接出错...", Toast.LENGTH_SHORT).show();
             }
@@ -84,6 +97,7 @@ public class PeidianActionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_peidian_action);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         String index="";
         index=getIntent().getStringExtra("index");
         lineChart=(LineChart)findViewById(R.id.lineChart_dl);
@@ -92,7 +106,7 @@ public class PeidianActionActivity extends Activity {
     }
     public void getData(String index){
         proDialog =new ProgressDialog(PeidianActionActivity.this);
-        proDialog.setMessage("正在登录中...");
+        proDialog.setMessage("正在加载中...");
         proDialog.show();
 
         String posturls = "http://119.23.37.145:8080/S2SH/surveyelectld.do";
@@ -100,6 +114,21 @@ public class PeidianActionActivity extends Activity {
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();
+    }
+
+    public void initSummary(ArrayList<Surveyelect> list){
+        tv_pd_dy=(TextView)findViewById(R.id.tv_pd_dy);
+        tv_pd_dlA=(TextView)findViewById(R.id.tv_pd_dlA);
+        tv_pd_wd=(TextView)findViewById(R.id.tv_pd_wd);
+        tv_pd_dd=(TextView)findViewById(R.id.tv_pd_dd);
+        tv_pd_jx=(TextView)findViewById(R.id.tv_pd_jx);
+
+        Surveyelect s=list.get(list.size()-1);
+        tv_pd_dy.setText(s.getDianyaB());
+        tv_pd_dlA.setText(s.getDianliuB());
+        tv_pd_wd.setText((Double.valueOf(s.getWenduB())-35)+"");
+        tv_pd_dd.setText((int)s.getDianliang()/10+"");
+        tv_pd_jx.setText(s.getMachine());
     }
 
     public void initChart(LineChart chart,ArrayList<Surveyelect> list) {
@@ -195,6 +224,14 @@ public class PeidianActionActivity extends Activity {
         chart.setData(data);
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

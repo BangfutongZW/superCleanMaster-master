@@ -76,7 +76,7 @@ public class RelaxFragment extends BaseFragment {
 
         // 访问assets目录下的文件
 
-        mWebView.loadUrl("http://girl-atlas.com");
+        mWebView.loadUrl("");
 
         // 设置WebViewClient
         mWebView.setWebViewClient(new WebViewClient() {

@@ -53,7 +53,7 @@ public class AlarmShowAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if (convertView == null) {
-            convertView = infater.inflate(R.layout.recycler_row,
+            convertView = infater.inflate(R.layout.recycler_list,
                     parent, false);
             holder = new ViewHolder();
             holder.mainText=(TextView)convertView.findViewById(R.id.mainText);

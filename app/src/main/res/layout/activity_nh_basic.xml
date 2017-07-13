@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/card_pressed" >
+        <RadioButton
+            android:id="@+id/rb_day"
+            style="@style/TabButtonTheme"
+            android:text="日"/>
+        <RadioButton
+            android:id="@+id/rb_month"
+            style="@style/TabButtonTheme"
+            android:text="月"/>
+        <RadioButton
+            android:id="@+id/rb_year"
+            style="@style/TabButtonTheme"
+            android:text="年"/>
+    </RadioGroup>
+    <FrameLayout
+        android:id="@+id/framelayout_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+
+</LinearLayout>

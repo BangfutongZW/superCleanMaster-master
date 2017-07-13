@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:gravity="center_vertical"
-            android:text="查看我的现场报告"
+            android:text="历史报告"
             android:textSize="18sp"
             />
     </RelativeLayout>
@@ -43,73 +43,66 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="110dp"
         android:background="@color/white"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/gray"
-            android:textSize="18sp"
-            android:text="工作组 :"/>
-        <ImageView
-            android:id="@+id/iv_right_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/right_icon"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="巡检点："/>
+            <TextView
+                android:id="@+id/xj_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/iv_right_icon"
-            android:gravity="center_vertical"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="@color/label_text"
-            android:text="指定工作组"/>
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="参数："/>
+            <TextView
+                android:id="@+id/xj_param"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关联点："/>
+            <TextView
+                android:id="@+id/xj_rela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:textSize="18sp"
-            android:textColor="@color/gray"
-            android:text="服务类型 :"/>
-        <ImageView
-            android:id="@+id/iv_right_icon2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/right_icon"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/iv_right_icon2"
-            android:gravity="center_vertical"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="@color/label_text"
-            android:text="选择服务类型"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -118,29 +111,23 @@
             android:layout_marginLeft="15dp"
             android:textSize="18sp"
             android:textColor="@color/gray"
-            android:text="紧急程度"/>
+            android:text="是否正常"/>
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:text="不正常"
+            android:textColor="@color/textcolor_mine_normal" />
 
     </RelativeLayout>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_margin="15dp"
         android:hint="点击填写备注"
         android:background="@drawable/shape_edit"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:text="自查自修"
-            android:textColor="@color/gray"
-            android:textSize="18sp"/>
-    </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -150,8 +137,4 @@
             android:src="@drawable/but_bx"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
-
-
-
-
 </LinearLayout>

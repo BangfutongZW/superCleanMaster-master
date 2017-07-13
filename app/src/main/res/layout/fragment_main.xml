@@ -242,22 +242,26 @@
                         android:textColor="@color/gplus_color_2"/>
 
                     <TextView
+                        android:id="@+id/tv_kt_mian1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="#1"
                         android:textColor="@color/gplus_color_2"
                         android:visibility="invisible"/>
                     <TextView
+                        android:id="@+id/tv_kt_mian2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="#2"
                         android:textColor="@color/gplus_color_2"
                         android:visibility="invisible"/>
                     <TextView
+                        android:id="@+id/tv_kt_mian3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="#3"
-                        android:textColor="@color/gplus_color_2"/>
+                        android:textColor="@color/gplus_color_2"
+                        android:visibility="invisible"/>
 
 
 

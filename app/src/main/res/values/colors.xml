@@ -10,6 +10,8 @@
     <item name="gray_drawable" type="drawable">#FF2c5aa9</item>
     <item name="title_bg" type="color" >#FF2c5aa9</item>
     <item name="blue" type="color" >#1d83ce</item>
+    <item name="set_text" type="color">#FF373737</item>
+    <item name="set_user" type="color">#FFf7f7f7</item>
 
     <drawable name="transparent">#00000000</drawable>
     <color name="white">#FFFFFF</color>

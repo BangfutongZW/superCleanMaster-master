@@ -23,6 +23,12 @@
             android:src="@drawable/wddb"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
         <RelativeLayout
             android:layout_width="240dp"
             android:layout_height="match_parent"
@@ -95,10 +101,6 @@
             </LinearLayout>
 
         </RelativeLayout>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
 
     </LinearLayout>
 

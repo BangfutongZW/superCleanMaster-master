@@ -84,7 +84,7 @@ public class LoginActivity extends Activity {
                 }
             }else {
                 proDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "不存在的用户名", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "不存在的用户名或网络未连接...", Toast.LENGTH_SHORT).show();
             }
 
 

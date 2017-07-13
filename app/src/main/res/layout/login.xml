@@ -44,13 +44,14 @@
                 android:padding="10dp"
                 android:singleLine="true"
                 android:textSize="15sp" />
-             <Button
-                android:id="@+id/button_clear01"
-                android:layout_width="30dip"
-                android:layout_height="30dip"
-                android:background="@drawable/icon_clear"
-                android:visibility="invisible"
-                android:layout_marginRight="8dip" />
+
+            <Button
+               android:id="@+id/button_clear01"
+               android:layout_width="30dip"
+               android:layout_height="30dip"
+               android:background="@drawable/icon_clear"
+               android:visibility="invisible"
+               android:layout_marginRight="8dip" />
         </LinearLayout>
 
         <LinearLayout
@@ -107,16 +108,16 @@
                 android:text="登  录"
                 android:background="@drawable/button"/>-->
             <Button
-                android:id="@+id/login"
-                android:layout_width="100.0dip"
-                android:layout_height="40.0dip"
-                android:layout_marginBottom="13.0dip"
-                android:layout_marginTop="13.0dip"
-                android:layout_marginLeft="220dp"
-                android:background="@drawable/selector_btn_login"
-                android:text="登录"
-                android:textColor="@color/white"
-                android:textSize="18.0dip" />
+            android:id="@+id/login"
+            android:layout_width="100.0dip"
+            android:layout_height="40.0dip"
+            android:layout_marginBottom="13.0dip"
+            android:layout_marginTop="13.0dip"
+            android:layout_marginLeft="220dp"
+            android:background="@drawable/selector_btn_login"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="18.0dip" />
         </LinearLayout>
     </LinearLayout>
     

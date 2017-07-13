@@ -31,14 +31,16 @@ public class SaomActivity extends BaseActivity {
         scan_btn=(Button)findViewById(R.id.scan_btn);
         chart_btn=(Button)findViewById(R.id.chart_btn);
         scan_tv=(TextView)findViewById(R.id.scan_tv);
-        scan_btn.setOnClickListener(new View.OnClickListener() {
+        /*scan_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.e("baoshi","start");
                 Intent intent=new Intent(SaomActivity.this, CaptureActivity.class);
                 startActivityForResult(intent,0);
             }
-        });
+        })*/;
+        Intent intent=new Intent(SaomActivity.this, CaptureActivity.class);
+        startActivityForResult(intent,0);
         chart_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +60,7 @@ public class SaomActivity extends BaseActivity {
             if (data!=null){
                 String content=data.getStringExtra("scan_result");
 
-                scan_tv.setText("解码结果： \n" + content);
+                scan_tv.setText("扫码结果： \n" + content);
 
 
             }
