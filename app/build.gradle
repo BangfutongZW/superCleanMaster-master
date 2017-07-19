@@ -8,7 +8,7 @@ android {
         applicationId "com.yzy.supercleanmaster"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 5
+        versionCode 6
         versionName "1.0"
 
         manifestPlaceholders = [
@@ -48,8 +48,8 @@ dependencies {
     compile 'com.github.gabrielemariotti.changeloglib:library:1.5.2'
     compile 'com.hannesdorfmann.smoothprogressbar:library:1.0.0'
     compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.0'
-    compile files('libs/zxing.jar')
     compile project(':MPChartLib')
     compile files('libs/effect.jar')
     compile files('libs/badgeview.jar')
+    compile files('libs/core-3.3.0.jar')
 }

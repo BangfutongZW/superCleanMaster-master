@@ -63,11 +63,15 @@ public class LoginActivity extends Activity {
                     JSONObject obj=arry.getJSONObject(0);
                     String name=obj.getString("userName");
                     String pass =obj.getString("passWord");
+                    String power=obj.getString("power");
 
                     if(password.equals(pass)){
                         Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
                         proDialog.dismiss();
                         Constants.ISLOGIN=true;
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("USER_POWER", power);
+                        editor.commit();
                         Intent intent = new Intent(getApplicationContext(),
                                 MainActivity.class);
                         startActivity(intent);

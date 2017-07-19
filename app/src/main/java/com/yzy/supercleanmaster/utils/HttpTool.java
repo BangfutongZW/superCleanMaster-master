@@ -47,13 +47,13 @@ public class HttpTool implements Runnable{
 			httpConn.setReadTimeout(timeout);
 
 			httpConn.setRequestProperty("Content-length",""+this.body.getBytes("utf-8").length);
-			httpConn.setRequestProperty("Content-type", "text/html");
+			httpConn.setRequestProperty("Content-type", "application/x-www-form-urlencoded");
 			OutputStream outputStream = httpConn.getOutputStream();
 			outputStream.write(this.body.getBytes("utf-8"));
 			outputStream.close();
 
 			int responseCode = httpConn.getResponseCode();
-			if (HttpURLConnection.HTTP_OK == responseCode) {// ���ӳɹ�
+			if (HttpURLConnection.HTTP_OK == responseCode) {
 
 				StringBuffer sb = new StringBuffer();
 				String readLine;

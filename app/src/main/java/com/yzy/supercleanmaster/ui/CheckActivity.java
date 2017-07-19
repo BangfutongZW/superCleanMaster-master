@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.ui.CaptureActivity;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseSwipeBackActivity;
 

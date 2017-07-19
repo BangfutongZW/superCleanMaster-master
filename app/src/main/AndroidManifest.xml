@@ -146,7 +146,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyTranslucentAppTheme" />
         <activity
-            android:name="com.google.zxing.ui.CaptureActivity"
+            android:name="com.zxing.android.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" />
 
