@@ -154,6 +154,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // com.getui.demo.DemoPushService 为第三自定义推送服务
+        //String cid = PushManager.getInstance().getClientid(this);
         PushManager.getInstance().initialize(this.getApplicationContext(), com.getui.service.PushService.class);
         PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), com.getui.service.IntentService.class);
         mFragmentContainerView = (View) findViewById(R.id.navigation_drawer);

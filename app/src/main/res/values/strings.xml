@@ -62,4 +62,6 @@
     <string name="title_activity_setting">设置</string>
     <string name="title_activity_user_info">账户管理</string>
     <string name="title_activity_inspect">InspectActivity</string>
+    <string name="title_activity_note_set">通知设置</string>
+    <string name="title_activity_cheak_mian">本次巡检</string>
 </resources>

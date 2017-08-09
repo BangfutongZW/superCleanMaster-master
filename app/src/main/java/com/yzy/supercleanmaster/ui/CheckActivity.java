@@ -17,9 +17,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class CheckActivity extends BaseSwipeBackActivity{
-    private ImageView iv_bs;
-    @InjectView(R.id.tv_xj)
-    TextView tv_xj;
+    private RelativeLayout rl_xjjh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +28,23 @@ public class CheckActivity extends BaseSwipeBackActivity{
     }
 
     private void initView() {
+        rl_xjjh=(RelativeLayout)findViewById(R.id.rl_xjjh);
+        rl_xjjh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CheckActivity.this, CheakMianActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        iv_bs=(ImageView)findViewById(R.id.iv_bs);
+        /*iv_bs=(ImageView)findViewById(R.id.iv_bs);
         iv_bs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(CheckActivity.this, RepotActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     /*@OnClick(R.id.tv_xj)

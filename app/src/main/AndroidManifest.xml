@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yzy.supercleanmaster"
-    >
+    package="com.yzy.supercleanmaster">
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -334,8 +333,11 @@
             android:name=".ui.UserInfoActivity"
             android:label="@string/title_activity_user_info" />
         <activity
-            android:name=".ui.InspectActivity"
-            android:label="@string/title_activity_inspect"></activity>
+            android:name=".ui.NoteSetActivity"
+            android:label="@string/title_activity_note_set" />
+        <activity
+            android:name=".ui.CheakMianActivity"
+            android:label="@string/title_activity_cheak_mian"></activity>
     </application>
 
 </manifest>

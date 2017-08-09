@@ -43,7 +43,4 @@ public class UpdateUtil {
         editor.putString(key, value).commit();
     }
 
-
-
-
 }

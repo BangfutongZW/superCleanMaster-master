@@ -106,7 +106,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
@@ -142,7 +142,7 @@
                     android:src="@drawable/bytj"/>
 
             </RelativeLayout>
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -167,7 +167,7 @@
                     android:layout_centerInParent="true"
                     android:src="@drawable/sbyx"/>
 
-            </RelativeLayout>
+            </RelativeLayout>-->
 
         </LinearLayout>
         <LinearLayout
@@ -202,7 +202,7 @@
                     android:src="@drawable/gdgz"/>
 
             </RelativeLayout>
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -228,7 +228,7 @@
                     android:layout_centerInParent="true"
                     android:src="@drawable/gd"/>
 
-            </RelativeLayout>
+            </RelativeLayout>-->
 
         </LinearLayout>
 

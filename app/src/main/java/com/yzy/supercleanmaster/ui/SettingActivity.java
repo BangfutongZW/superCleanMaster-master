@@ -18,6 +18,7 @@ import com.yzy.supercleanmaster.R;
 
 public class SettingActivity extends Activity {
     private RelativeLayout rl_project_check;
+    private  RelativeLayout rl_noteset;
     private TextView tv_project;
     private int curr_index;
     private RelativeLayout rl_about;
@@ -28,6 +29,7 @@ public class SettingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        rl_noteset=(RelativeLayout)findViewById(R.id.rl_noteset);
         rl_project_check=(RelativeLayout) findViewById(R.id.rl_project_check);
         tv_project=(TextView)findViewById(R.id.tv_project);
         rl_about=(RelativeLayout)findViewById(R.id.rl_about);
@@ -49,6 +51,13 @@ public class SettingActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(SettingActivity.this,UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+        rl_noteset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,NoteSetActivity.class);
                 startActivity(intent);
             }
         });

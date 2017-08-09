@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.yzy.supercleanmaster.R;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
@@ -25,9 +26,6 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-
-import butterknife.InjectView;
-import butterknife.OnClick;
 
 public class LoginActivity extends Activity {
     //@InjectView(R.id.login)
@@ -64,13 +62,22 @@ public class LoginActivity extends Activity {
                     String name=obj.getString("userName");
                     String pass =obj.getString("passWord");
                     String power=obj.getString("power");
-
+                    String person=obj.getString("realName");
+                    String team=obj.getString("team")+"";
+                    String local=obj.getString("local");
+                    if("hx".equals(local)||"gl".equals(local)){
+                        UrlStone.Url="http://119.23.37.145:8080/S2SH/";
+                    }else if("df".equals(local)){
+                        UrlStone.Url="http://119.23.37.145:8080/S2SHDF/";
+                    }
                     if(password.equals(pass)){
                         Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
                         proDialog.dismiss();
                         Constants.ISLOGIN=true;
                         SharedPreferences.Editor editor = sp.edit();
                         editor.putString("USER_POWER", power);
+                        editor.putString("USER_PERSON", person);
+                        editor.putString("USER_TEAM", team);
                         editor.commit();
                         Intent intent = new Intent(getApplicationContext(),
                                 MainActivity.class);
@@ -135,7 +142,7 @@ public class LoginActivity extends Activity {
             proDialog =new ProgressDialog(LoginActivity.this);
             proDialog.setMessage("正在登录中...");
             proDialog.show();
-            String posturls = "http://119.23.37.145:8080/S2SH/loadUserld.do";
+            String posturls =UrlStone.commmonUrl+ "loadUserld.do";
             posturls=posturls+"?username="+username;
             HttpTool tol = new HttpTool(posturls);
             tol.setHandler(handler);

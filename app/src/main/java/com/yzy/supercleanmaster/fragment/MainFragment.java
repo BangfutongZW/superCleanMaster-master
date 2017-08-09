@@ -25,6 +25,7 @@ import com.yzy.supercleanmaster.base.BaseFragment;
 import com.yzy.supercleanmaster.model.AlarmInfo;
 import com.yzy.supercleanmaster.model.Nownh;
 import com.yzy.supercleanmaster.model.SDCardInfo;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.ui.AlarmListActivity;
 import com.yzy.supercleanmaster.ui.ApdActivity;
 import com.yzy.supercleanmaster.ui.CheckActivity;
@@ -306,7 +307,7 @@ public class MainFragment extends BaseFragment {
                     startActivity(AlarmListActivity.class);
                     break;
                 case R.id.ll_question:
-                    startActivity(RepotActivity.class);
+                    startActivity(CheckActivity.class);
                     break;
                 case R.id.card1:
                     startActivity(GpdActivity.class);
@@ -340,22 +341,22 @@ public class MainFragment extends BaseFragment {
         UmengUpdateAgent.update(getActivity());
     }
     private void initData() {
-        String posturls = "http://119.23.37.145:8080/S2SH/nowfuzaild.do";
+        String posturls = UrlStone.Url+"nowfuzaild.do";
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();
 
-        String posturls1 = "http://119.23.37.145:8080/S2SH/nowTotalNhld.do";
+        String posturls1 = UrlStone.Url+"nowTotalNhld.do";
         HttpTool tol1 = new HttpTool(posturls1);
         tol1.setHandler(tHandler);
         new Thread(tol1).start();
 
-        String posturls2 = "http://119.23.37.145:8080/S2SH/checkMacld.do";
+        String posturls2 = UrlStone.Url+"checkMacld.do";
         HttpTool tol2 = new HttpTool(posturls2);
         tol2.setHandler(rHandler);
         new Thread(tol2).start();
 
-        String posturls3 = "http://119.23.37.145:8080/S2SH/checkAirMacld.do";
+        String posturls3 = UrlStone.Url+"checkAirMacld.do";
         HttpTool tol3 = new HttpTool(posturls3);
         tol3.setHandler(yHandler);
         new Thread(tol3).start();
@@ -366,7 +367,7 @@ public class MainFragment extends BaseFragment {
         if(id==null||id.equals("")){
             id="2548";
         }
-        String posturls4 = "http://119.23.37.145:8080/S2SH/alarmcountld.do";
+        String posturls4 = UrlStone.Url+"alarmcountld.do";
         posturls4 =posturls4+"?ID="+id;
         Log.e("paoturl",posturls4);
         HttpTool tol4 = new HttpTool(posturls4);

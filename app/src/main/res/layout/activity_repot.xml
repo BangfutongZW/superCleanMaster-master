@@ -13,18 +13,19 @@
         android:orientation="vertical"
         android:background="@color/gray_back">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="20dp">
-        <!--<TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:gravity="center_vertical"
             android:text="巡检报告"
             android:textSize="18sp"
-            />-->
+            />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/rl_check_sm"
         android:layout_width="match_parent"
@@ -39,8 +40,8 @@
             android:layout_marginLeft="15dp"
             android:text="选择位置或设备"/>
         <ImageView
-            android:layout_width="33sp"
-            android:layout_height="33sp"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:src="@drawable/ewm"
@@ -72,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -90,6 +92,7 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -134,7 +137,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -168,7 +171,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -201,7 +204,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -233,7 +236,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -265,7 +268,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -297,7 +300,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_gravity="center_vertical"
             android:layout_centerHorizontal="true"
             android:text=""
@@ -329,7 +332,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -361,7 +364,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -393,7 +396,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -425,7 +428,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -457,7 +460,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -489,7 +492,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -521,7 +524,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -553,7 +556,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -585,7 +588,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_gravity="center_vertical"
             android:layout_centerHorizontal="true"
             android:text=""
@@ -617,7 +620,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -649,7 +652,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -681,7 +684,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -713,7 +716,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -745,7 +748,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -777,7 +780,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -809,7 +812,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -841,7 +844,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -873,7 +876,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -905,7 +908,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_gravity="center_vertical"
                 android:layout_centerHorizontal="true"
                 android:text=""
@@ -955,16 +958,32 @@
         android:visibility="gone"
         android:inputType="textMultiLine"
         android:background="@drawable/shape_edit"/>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+        <Button
+            android:id="@+id/rl_saom"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:text="扫码选择设备"
+            android:textColor="@color/white"
+            android:textSize="18.0dip"
+            android:background="@drawable/login_btn_selector"
+            />
         <Button
             android:id="@+id/rl_sub"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="45dp"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
             android:text="提 交"
             android:textColor="@color/white"
             android:textSize="18.0dip"
             android:background="@drawable/login_btn_selector"
             />
+        </LinearLayout>-->
     </LinearLayout>
 </ScrollView>

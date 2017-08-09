@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RepotActivity extends BaseSwipeBackActivity{
-    //private  String CodeString="";
+    /*private  String CodeString="";
     private RelativeLayout rl_check_sm;
     private TextView tv_n;
     private TextView tv_p;
@@ -49,6 +49,7 @@ public class RepotActivity extends BaseSwipeBackActivity{
     String name="";
     String belong="";
     String id="";
+    String local="";
 
     Handler sHandler=new Handler(){
         @Override
@@ -69,6 +70,7 @@ public class RepotActivity extends BaseSwipeBackActivity{
                     name=obj.getString("name");
                     String relation=obj.getString("relation");
                     belong=obj.getString("belong");
+                    local=obj.getString("local");
                     belong=belong.trim();
                     if("给排水".equals(belong)){
                         rl[0].setVisibility(View.VISIBLE);
@@ -141,18 +143,32 @@ public class RepotActivity extends BaseSwipeBackActivity{
             super.handleMessage(msg);
         }
     };
+    Handler ehandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            String msgStr=(String) msg.obj;
+            if (msgStr != null) {
+                msgStr = msgStr.replaceAll("\ufeff", "");
+                msgStr = msgStr.replace("\\", "");
+            }
+            msgStr = msgStr.substring(msgStr.indexOf("{"),msgStr.lastIndexOf("}")+1);
+
+            Log.e("task",msgStr);
+            super.handleMessage(msg);
+        }
+    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repot);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        initView();
+        //initView();
     }
 
-    private void initView() {
+    /*private void initView() {
         SharedPreferences sp=getSharedPreferences("saveuser", Context.MODE_WORLD_READABLE);
-        userName=sp.getString("USER_NAME","");
+        userName=sp.getString("USER_PERSON","");
         rl[0]=(RelativeLayout)findViewById(R.id.rl_0);
         rl[1]=(RelativeLayout)findViewById(R.id.rl_1);
         rl[2]=(RelativeLayout)findViewById(R.id.rl_2);
@@ -230,8 +246,9 @@ public class RepotActivity extends BaseSwipeBackActivity{
                     Toast.makeText(getApplicationContext(),"请先扫码",Toast.LENGTH_LONG).show();
                 }else{
                     JSONObject jsonParams = new JSONObject();
-                    JSONObject json = new JSONObject();
+                    JSONObject jsontask = new JSONObject();
                     try {
+                        jsonParams.put("a",local);
                         jsonParams.put("id",id);
                         jsonParams.put("name",name);
                         jsonParams.put("patrolMan",userName);
@@ -241,6 +258,14 @@ public class RepotActivity extends BaseSwipeBackActivity{
                     if(check.isChecked()){
                         jsonParams.put("abnormalNormal","不正常");
                         jsonParams.put("reason",et_beizhu.getText().toString()+"");
+                        jsontask.put("content",et_beizhu.getText().toString());
+                        jsontask.put("time",f.format(new Date()));
+                        jsontask.put("name",name);
+                        jsontask.put("id",id);
+                        jsontask.put("type","巡检任务");
+                        jsontask.put("person",userName);
+                        jsontask.put("state","0");
+                        sendTask(jsontask.toString());
                     }else{
                         jsonParams.put("abnormalNormal","正常");
                     }
@@ -269,7 +294,7 @@ public class RepotActivity extends BaseSwipeBackActivity{
                         jsonParams.put("exhaustPressure",et[17].getText().toString());
                         jsonParams.put("condensing",et[18].getText().toString());
                         jsonParams.put("exhaustTemperature",et[19].getText().toString());
-                        jsonParams.put("superheat",et[20].getText().toString());
+                        //jsonParams.put("superheat",et[20].getText().toString());
                         jsonParams.put("fuelPressure",et[21].getText().toString());
                         jsonParams.put("pressureDifference",et[22].getText().toString());
 
@@ -284,10 +309,10 @@ public class RepotActivity extends BaseSwipeBackActivity{
                         e.printStackTrace();
                     }
 
-                    String param=null;
                     String posturls = "http://119.23.37.145:8080/S2SH/Inspectiold.do";
                     HttpTool tol = new HttpTool(posturls);
                     tol.setBody("jsonstr="+jsonParams.toString());
+                    Log.e("check",jsonParams.toString());
                     tol.setHandler(handler);
                     new Thread(tol).start();
                 }
@@ -303,6 +328,15 @@ public class RepotActivity extends BaseSwipeBackActivity{
                 startActivityForResult(intent,0);
             }
         });
+    }
+
+    private void sendTask(String s) {
+        Log.e("source",s);
+        String posturls = "http://119.23.37.145:8080/S2SH/insertTaskld.do";
+        HttpTool tol = new HttpTool(posturls);
+        tol.setBody("jsonstr="+s);
+        tol.setHandler(ehandler);
+        new Thread(tol).start();
     }
 
     @Override
@@ -333,5 +367,5 @@ public class RepotActivity extends BaseSwipeBackActivity{
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
