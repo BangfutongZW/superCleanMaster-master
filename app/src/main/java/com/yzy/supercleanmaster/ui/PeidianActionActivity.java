@@ -22,6 +22,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.model.Surveyelect;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
 import org.json.JSONArray;
@@ -38,7 +39,7 @@ public class PeidianActionActivity extends Activity {
     private LineChart lineChart;
     private ProgressDialog proDialog;
 
-    public TextView tv_pd_dy;
+    //public TextView tv_pd_dy;
 
     public TextView tv_pd_dlA;
 
@@ -109,7 +110,7 @@ public class PeidianActionActivity extends Activity {
         proDialog.setMessage("正在加载中...");
         proDialog.show();
 
-        String posturls = "http://119.23.37.145:8080/S2SH/surveyelectld.do";
+        String posturls = UrlStone.Url+"surveyelectld.do";
         posturls=posturls+"?index="+index;
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
@@ -117,16 +118,16 @@ public class PeidianActionActivity extends Activity {
     }
 
     public void initSummary(ArrayList<Surveyelect> list){
-        tv_pd_dy=(TextView)findViewById(R.id.tv_pd_dy);
+        //tv_pd_dy=(TextView)findViewById(R.id.tv_pd_dy);
         tv_pd_dlA=(TextView)findViewById(R.id.tv_pd_dlA);
         tv_pd_wd=(TextView)findViewById(R.id.tv_pd_wd);
         tv_pd_dd=(TextView)findViewById(R.id.tv_pd_dd);
         tv_pd_jx=(TextView)findViewById(R.id.tv_pd_jx);
 
         Surveyelect s=list.get(list.size()-1);
-        tv_pd_dy.setText(s.getDianyaB());
+        //tv_pd_dy.setText(s.getDianyaB());
         tv_pd_dlA.setText(s.getDianliuB());
-        tv_pd_wd.setText((Double.valueOf(s.getWenduB())-35)+"");
+        tv_pd_wd.setText((Double.valueOf(s.getWenduB()))+"");
         tv_pd_dd.setText((int)s.getDianliang()/10+"");
         tv_pd_jx.setText(s.getMachine());
     }

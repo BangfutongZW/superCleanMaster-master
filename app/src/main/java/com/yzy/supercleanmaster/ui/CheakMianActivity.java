@@ -26,6 +26,7 @@ import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.dialogs.AlertDialogFragment;
 import com.yzy.supercleanmaster.dialogs.DialogUtil;
 import com.yzy.supercleanmaster.model.Inspection;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 import com.zxing.android.CaptureActivity;
 
@@ -34,7 +35,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.zip.Inflater;
 
 public class CheakMianActivity extends Activity {
@@ -53,6 +56,29 @@ public class CheakMianActivity extends Activity {
     private String checkTime;
     private CheckBox check;
     private EditText et_beizhu;
+    private int powerCheck=0;
+    private List<String> slist;
+    private List<String> alist=new ArrayList<String>();
+    Handler mhandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            String msgStr=(String) msg.obj;
+            if (msgStr != null) {
+                msgStr = msgStr.replaceAll("\ufeff", "");
+                msgStr = msgStr.replace("\\", "");
+                Log.e("checkMain",msgStr);
+
+                msgStr = msgStr.substring(msgStr.indexOf("[")+1,msgStr.lastIndexOf("]"));
+                String[] allstr=msgStr.split(",");
+                slist=new ArrayList<String>();
+                for (String str:allstr){
+                    slist.add(str.replace("\"",""));
+                }
+                Log.e("checkMain","size"+slist.size());
+            }
+            super.handleMessage(msg);
+        }
+    };
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -84,9 +110,7 @@ public class CheakMianActivity extends Activity {
                 msgStr = msgStr.replaceAll("\ufeff", "");
                 msgStr = msgStr.replace("\\", "");
                 msgStr = msgStr.substring(msgStr.indexOf("[")+1,msgStr.lastIndexOf("]"));
-                Log.e("source",msgStr);
                 View v=View.inflate(CheakMianActivity.this,R.layout.check_dialog,null);
-                Log.e("check","111");
                 rl[0]=(RelativeLayout)v.findViewById(R.id.rl_0);
                 rl[1]=(RelativeLayout)v.findViewById(R.id.rl_1);
                 rl[2]=(RelativeLayout)v.findViewById(R.id.rl_2);
@@ -107,7 +131,7 @@ public class CheakMianActivity extends Activity {
                 rl[17]=(RelativeLayout)v.findViewById(R.id.rl_17);
                 rl[18]=(RelativeLayout)v.findViewById(R.id.rl_18);
                 rl[19]=(RelativeLayout)v.findViewById(R.id.rl_19);
-                rl[20]=(RelativeLayout)v.findViewById(R.id.rl_20);
+                //rl[20]=(RelativeLayout)v.findViewById(R.id.rl_20);
                 rl[21]=(RelativeLayout)v.findViewById(R.id.rl_21);
                 rl[22]=(RelativeLayout)v.findViewById(R.id.rl_22);
                 rl[23]=(RelativeLayout)v.findViewById(R.id.rl_23);
@@ -121,12 +145,12 @@ public class CheakMianActivity extends Activity {
                 rl[31]=(RelativeLayout)v.findViewById(R.id.rl_31);
                 rl[32]=(RelativeLayout)v.findViewById(R.id.rl_32);
                 rl[33]=(RelativeLayout)v.findViewById(R.id.rl_33);
-                rl[34]=(RelativeLayout)v.findViewById(R.id.rl_34);
+                /*rl[34]=(RelativeLayout)v.findViewById(R.id.rl_34);
                 rl[35]=(RelativeLayout)v.findViewById(R.id.rl_35);
-                rl[36]=(RelativeLayout)v.findViewById(R.id.rl_36);
-                rl[37]=(RelativeLayout)v.findViewById(R.id.rl_37);
+                rl[36]=(RelativeLayout)v.findViewById(R.id.rl_36);*/
+               /* rl[37]=(RelativeLayout)v.findViewById(R.id.rl_37);
                 rl[38]=(RelativeLayout)v.findViewById(R.id.rl_38);
-                rl[39]=(RelativeLayout)v.findViewById(R.id.rl_39);
+                rl[39]=(RelativeLayout)v.findViewById(R.id.rl_39);*/
                 rl[40]=(RelativeLayout)v.findViewById(R.id.rl_40);
                 rl[41]=(RelativeLayout)v.findViewById(R.id.rl_41);
                 rl[42]=(RelativeLayout)v.findViewById(R.id.rl_42);
@@ -153,7 +177,7 @@ public class CheakMianActivity extends Activity {
                 et[17]=(EditText)v.findViewById(R.id.et_17);
                 et[18]=(EditText)v.findViewById(R.id.et_18);
                 et[19]=(EditText)v.findViewById(R.id.et_19);
-                et[20]=(EditText)v.findViewById(R.id.et_20);
+                //et[20]=(EditText)v.findViewById(R.id.et_20);
                 et[21]=(EditText)v.findViewById(R.id.et_21);
                 et[22]=(EditText)v.findViewById(R.id.et_22);
                 et[23]=(EditText)v.findViewById(R.id.et_23);
@@ -167,12 +191,12 @@ public class CheakMianActivity extends Activity {
                 et[31]=(EditText)v.findViewById(R.id.et_31);
                 et[32]=(EditText)v.findViewById(R.id.et_32);
                 et[33]=(EditText)v.findViewById(R.id.et_33);
-                et[34]=(EditText)v.findViewById(R.id.et_34);
+                /*et[34]=(EditText)v.findViewById(R.id.et_34);
                 et[35]=(EditText)v.findViewById(R.id.et_35);
-                et[36]=(EditText)v.findViewById(R.id.et_36);
-                et[37]=(EditText)v.findViewById(R.id.et_37);
+                et[36]=(EditText)v.findViewById(R.id.et_36);*/
+                /*et[37]=(EditText)v.findViewById(R.id.et_37);
                 et[38]=(EditText)v.findViewById(R.id.et_38);
-                et[39]=(EditText)v.findViewById(R.id.et_39);
+                et[39]=(EditText)v.findViewById(R.id.et_39);*/
                 et[40]=(EditText)v.findViewById(R.id.et_40);
                 et[41]=(EditText)v.findViewById(R.id.et_41);
                 et[42]=(EditText)v.findViewById(R.id.et_42);
@@ -181,7 +205,13 @@ public class CheakMianActivity extends Activity {
                 et[45]=(EditText)v.findViewById(R.id.et_45);
                 check=(CheckBox)v.findViewById(R.id.check_s);
                 et_beizhu=(EditText)v.findViewById(R.id.et_beizhu);
-                for (int i=0;i<46;i++){
+                for (int i=0;i<20;i++){
+                    rl[i].setVisibility(View.GONE);
+                }
+                for (int i=21;i<34;i++){
+                    rl[i].setVisibility(View.GONE);
+                }
+                for (int i=40;i<45;i++){
                     rl[i].setVisibility(View.GONE);
                 }
                 try {
@@ -201,7 +231,6 @@ public class CheakMianActivity extends Activity {
                         rl[2].setVisibility(View.VISIBLE);
                     }else if("强电".equals(belong)){
                         rl[3].setVisibility(View.VISIBLE);
-                        Log.e("check","333");
                         rl[4].setVisibility(View.VISIBLE);
                         rl[5].setVisibility(View.VISIBLE);
                         rl[6].setVisibility(View.VISIBLE);
@@ -218,8 +247,8 @@ public class CheakMianActivity extends Activity {
                         rl[25].setVisibility(View.VISIBLE);
                         rl[28].setVisibility(View.VISIBLE);
                         rl[31].setVisibility(View.VISIBLE);
-                        rl[34].setVisibility(View.VISIBLE);
-                        rl[37].setVisibility(View.VISIBLE);
+                        //rl[34].setVisibility(View.VISIBLE);
+                        //rl[37].setVisibility(View.VISIBLE);
                         rl[40].setVisibility(View.VISIBLE);
                         if("DF-KT-40-003".equals(smId)) {
                             rl[23].setVisibility(View.VISIBLE);
@@ -230,10 +259,10 @@ public class CheakMianActivity extends Activity {
                             rl[30].setVisibility(View.VISIBLE);
                             rl[32].setVisibility(View.VISIBLE);
                             rl[33].setVisibility(View.VISIBLE);
-                            rl[35].setVisibility(View.VISIBLE);
-                            rl[36].setVisibility(View.VISIBLE);
-                            rl[38].setVisibility(View.VISIBLE);
-                            rl[39].setVisibility(View.VISIBLE);
+                            //rl[35].setVisibility(View.VISIBLE);
+                            //rl[36].setVisibility(View.VISIBLE);
+                            //rl[38].setVisibility(View.VISIBLE);
+                            //rl[39].setVisibility(View.VISIBLE);
                             rl[41].setVisibility(View.VISIBLE);
                             rl[42].setVisibility(View.VISIBLE);
                         }else{
@@ -242,7 +271,7 @@ public class CheakMianActivity extends Activity {
                             rl[17].setVisibility(View.VISIBLE);
                             rl[18].setVisibility(View.VISIBLE);
                             rl[19].setVisibility(View.VISIBLE);
-                            rl[20].setVisibility(View.VISIBLE);
+                            //rl[20].setVisibility(View.VISIBLE);
                             rl[21].setVisibility(View.VISIBLE);
                         }
                     }else if("电梯".equals(belong)){
@@ -262,15 +291,17 @@ public class CheakMianActivity extends Activity {
                         }
                     });
                     final String finalBelong = belong;
+                    Log.e("check","222"+finalBelong);
                     AlertDialog.Builder build=new AlertDialog.Builder(CheakMianActivity.this);
                     build.setView(v);
                     build.setTitle(belong);
                     build.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Log.e("check","1111");
                             Inspection i=new Inspection();
                             i.setName(name);
-                            i.setA(local);
+                            i.setA(finalBelong);
                             i.setId(smId);
                             i.setPatrolTime(checkTime);
                             i.setB(checkId);
@@ -281,13 +312,19 @@ public class CheakMianActivity extends Activity {
                             }else {
                                 i.setAbnormalNormal("正常");
                             }
+                            Log.e("check","1222");
                             if("给排水".equals(finalBelong)){
                             i.setWaterlevel(et[0].getText().toString());
                             i.setPressure(et[1].getText().toString());
                         }else if("发电机".equals(finalBelong)){
                             i.setBattery(et[2].getText().toString());
                         }else if("强电".equals(finalBelong)){
-                            Log.e("check","333");
+                                alist.add(name);
+                                if(equalList(alist,slist)){
+                                    rl_sub.setEnabled(true);
+                                }else {
+                                    rl_sub.setEnabled(false);
+                                };
                             i.setTransformer(et[3].getText().toString());
                             i.setVoltage(et[4].getText().toString());
                             i.setElectric(et[5].getText().toString());
@@ -305,8 +342,6 @@ public class CheakMianActivity extends Activity {
                                 i.setEvaporating(et[25].getText().toString());
                                 i.setExhaustPressure(et[28].getText().toString());
                                 i.setCondensing(et[31].getText().toString());
-                                i.setExhaustTemperature(et[34].getText().toString());
-                                i.setFuelPressure(et[37].getText().toString());
                                 i.setPressureDifference(et[40].getText().toString());
                             if("DF-KT-40-003".equals(smId)) {
 
@@ -318,10 +353,6 @@ public class CheakMianActivity extends Activity {
                                 i.setExhaustPressure2(et[30].getText().toString());
                                 i.setCondensing1(et[32].getText().toString());
                                 i.setCondensing2(et[33].getText().toString());
-                                i.setExhaustTemperature1(et[35].getText().toString());
-                                i.setExhaustTemperature2(et[36].getText().toString());
-                                i.setFuelPressure1(et[38].getText().toString());
-                                i.setFuelPressure2(et[39].getText().toString());
                                 i.setPressureDifference1(et[41].getText().toString());
                                 i.setPressureDifference2(et[42].getText().toString());
                             }else{
@@ -330,7 +361,6 @@ public class CheakMianActivity extends Activity {
                                 i.setMotorTemperature(et[17].getText().toString());
                                 i.setGuideVane(et[18].getText().toString());
                                 i.setOilTemperature(et[19].getText().toString());
-                                i.setLeaveOil(et[20].getText().toString());
                                 i.setLeaveExhaustPressure(et[21].getText().toString());
                             }
                         }else if("电梯".equals(finalBelong)){
@@ -339,11 +369,13 @@ public class CheakMianActivity extends Activity {
                         }else if("计量柜".equals(finalBelong)){
                                 i.setElectricAA(et[45].getText().toString());
                             }
+                            Log.e("check","1333");
                             String temp="";
                             IList.add(i);
                             for (Inspection il:IList) {
                                 temp+=il.getName();
                             }
+                            Log.e("check","1444");
                             tv_yxj.setText(temp);
 
                     }
@@ -357,11 +389,20 @@ public class CheakMianActivity extends Activity {
             }
             //updateView(a);
         }else {
-            Toast.makeText(getApplicationContext(), "网络连接出错...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "无此设备ID...", Toast.LENGTH_SHORT).show();
         }
         super.handleMessage(msg);
     }
 };
+    public boolean equalList(List list1, List list2) {
+        if (list1.size() != list2.size())
+            return false;
+        for (Object object : list1) {
+            if (!list2.contains(object))
+                return false;
+        }
+        return true;
+    }
 
 
 
@@ -385,6 +426,7 @@ public class CheakMianActivity extends Activity {
         tv_xjh.setText(checkId);
         tv_yxj=(TextView)findViewById(R.id.tv_yxj);
         rl_sub=(Button)findViewById(R.id.rl_sub);
+        getJXlist();
         rl_check_sm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -397,7 +439,7 @@ public class CheakMianActivity extends Activity {
             public void onClick(View v) {
                 Gson gs=new Gson();
                 for (Inspection i:IList) {
-                    String posturls = "http://119.23.37.145:8080/S2SH/Inspectiold.do";
+                    String posturls = UrlStone.Url+"Inspectiold.do";
                     HttpTool tol = new HttpTool(posturls);
                     tol.setBody("jsonstr="+gs.toJson(i));
                     //tol.setBody("jsonstr="+jsonParams.toString());
@@ -411,6 +453,19 @@ public class CheakMianActivity extends Activity {
             }
         });
     }
+
+    private void getJXlist() {
+        Log.e("checkMain","1");
+        Calendar cal=Calendar.getInstance();
+        int month=cal.get(Calendar.MONTH)+1;
+        String posturls = UrlStone.Url+"planJxld.do";
+        posturls=posturls+"?month="+month;
+        Log.e("checkMain",posturls);
+        HttpTool tol = new HttpTool(posturls);
+        tol.setHandler(mhandler);
+        new Thread(tol).start();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -422,7 +477,7 @@ public class CheakMianActivity extends Activity {
                 //scan_tv.setText("解码结果： \n" + content);
                 //Toast.makeText(getApplicationContext(),"扫码结果：" + content,Toast.LENGTH_LONG).show();
 
-                String posturls = "http://119.23.37.145:8080/S2SH/parald.do";
+                String posturls = UrlStone.Url+"parald.do";
                 posturls=posturls+"?Id="+content;
                 HttpTool tol = new HttpTool(posturls);
                 tol.setHandler(sHandler);

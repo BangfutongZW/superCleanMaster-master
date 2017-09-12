@@ -11,20 +11,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.yzy.supercleanmaster.ui.SaomActivity">
 
-    <Button
-        android:id="@+id/scan_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="报事"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scan_tv"
-        />
-    <Button
-        android:id="@+id/chart_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="曲线"/>
+        android:textSize="24px"
+        android:text="未得到结果..."/>
+
 
 </LinearLayout>

@@ -37,6 +37,7 @@ import com.yzy.supercleanmaster.ui.NhBasicActivity;
 import com.yzy.supercleanmaster.ui.RepotActivity;
 import com.yzy.supercleanmaster.ui.SaomActivity;
 import com.yzy.supercleanmaster.ui.WaterActivity;
+import com.yzy.supercleanmaster.ui.WaterDfActivity;
 import com.yzy.supercleanmaster.utils.AppUtil;
 import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
@@ -91,6 +92,8 @@ public class MainFragment extends BaseFragment {
     TextView pd_main_3;
     @InjectView(R.id.pd_main_4)
     TextView pd_main_4;
+    @InjectView(R.id.pd_main_5)
+    TextView pd_main_5;
     @InjectView(R.id.iv_redbag)
     ImageView iv_redbag;
     @InjectView(R.id.iv_car_logo)
@@ -101,6 +104,10 @@ public class MainFragment extends BaseFragment {
     TextView tv_kt_mian2;
     @InjectView(R.id.tv_kt_mian3)
     TextView tv_kt_mian3;
+    @InjectView(R.id.tv_kt_mian4)
+    TextView tv_kt_mian4;
+    @InjectView(R.id.tv_kt_mian5)
+    TextView tv_kt_mian5;
 
     Context mContext;
     BadgeView badgeView1;
@@ -183,7 +190,7 @@ public class MainFragment extends BaseFragment {
                 Log.e("smac",msgStr);
                 String[] sa=msgStr.split(",");
                 for(String a:sa){
-                    updateView(a);
+                    updateView(a.trim());
                 }
             }else {
                 Toast.makeText(getActivity(), "网络连接出错...", Toast.LENGTH_SHORT).show();
@@ -209,7 +216,7 @@ public class MainFragment extends BaseFragment {
                 Log.e("amac",msgStr);
                 String[] sa=msgStr.split(",");
                 for(String a:sa){
-                    updateAirView(a);
+                    updateAirView(a.trim());
                 }
             }else {
                 Toast.makeText(getActivity(), "无运行主机...", Toast.LENGTH_SHORT).show();
@@ -317,7 +324,11 @@ public class MainFragment extends BaseFragment {
                     break;
                 case R.id.card3:
                     //Toast.makeText(mContext, "正在开发中...", Toast.LENGTH_SHORT).show();
-                    startActivity(WaterActivity.class);
+                    if("df".equals(UrlStone.local)){
+                        startActivity(WaterDfActivity.class);
+                    }else{
+                        startActivity(WaterActivity.class);
+                    }
                     break;
                 case R.id.card4:
                     startActivity(SaomActivity.class);
@@ -367,8 +378,8 @@ public class MainFragment extends BaseFragment {
         if(id==null||id.equals("")){
             id="2548";
         }
-        String posturls4 = UrlStone.Url+"alarmcountld.do";
-        posturls4 =posturls4+"?ID="+id;
+        String posturls4 = UrlStone.commmonUrl+"alarmcountld.do";
+        posturls4 =posturls4+"?ID="+id+"&local="+UrlStone.local;
         Log.e("paoturl",posturls4);
         HttpTool tol4 = new HttpTool(posturls4);
         tol4.setHandler(oHandler);
@@ -431,6 +442,8 @@ public class MainFragment extends BaseFragment {
                 break;
             case "4":
                 pd_main_4.setVisibility(View.VISIBLE);
+            case "5":
+                pd_main_5.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -444,6 +457,12 @@ public class MainFragment extends BaseFragment {
                 break;
             case "3":
                 tv_kt_mian3.setVisibility(View.VISIBLE);
+                break;
+            case "4":
+                tv_kt_mian4.setVisibility(View.VISIBLE);
+                break;
+            case "5":
+                tv_kt_mian5.setVisibility(View.VISIBLE);
                 break;
         }
     }

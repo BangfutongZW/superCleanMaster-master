@@ -23,6 +23,7 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseFragment;
 import com.yzy.supercleanmaster.model.Nownh;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
 import org.json.JSONArray;
@@ -84,7 +85,7 @@ public class DayNhSpentFragment extends BaseFragment{
 		return view;
 	}
 	private void NhdayPost() {
-		String posturls = "http://119.23.37.145:8080/S2SH/nowTotalNhld.do";
+		String posturls = UrlStone.Url+"nowTotalNhld.do";
 		HttpTool tol = new HttpTool(posturls);
 		tol.setHandler(tHandler);
 		new Thread(tol).start();

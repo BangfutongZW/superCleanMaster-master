@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.yzy.supercleanmaster.R;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
 import java.io.UnsupportedEncodingException;
@@ -47,7 +48,7 @@ public class ApdActivity extends Activity {
                 Log.e("smac",msgStr);
                 String[] sa=msgStr.split(",");
                 for(String a:sa){
-                    updateView(a);
+                    updateView(a.trim());
                 }
             }else {
                 Toast.makeText(getApplicationContext(), "网络连接出错...", Toast.LENGTH_SHORT).show();
@@ -71,7 +72,7 @@ public class ApdActivity extends Activity {
         pd_card2=(RelativeLayout)findViewById(R.id.apd_card2);
         pd_card3=(RelativeLayout)findViewById(R.id.apd_card3);
 
-        String posturls = "http://119.23.37.145:8080/S2SH/checkAirMacld.do";
+        String posturls = UrlStone.Url+"checkAirMacld.do";
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();

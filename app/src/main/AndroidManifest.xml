@@ -324,6 +324,9 @@
             android:name=".ui.WaterActivity"
             android:label="@string/title_activity_water" />
         <activity
+            android:name=".ui.WaterDfActivity"
+            android:label="@string/title_activity_water" />
+        <activity
             android:name=".ui.ApeidianActionActivity"
             android:label="@string/title_activity_air" />
         <activity
@@ -337,7 +340,19 @@
             android:label="@string/title_activity_note_set" />
         <activity
             android:name=".ui.CheakMianActivity"
-            android:label="@string/title_activity_cheak_mian"></activity>
+            android:label="@string/title_activity_cheak_mian" />
+        <activity
+            android:name=".ui.CreateUserActivity"
+            android:label="@string/title_activity_create_user" />
+        <activity
+            android:name=".ui.checkPlanActivity"
+            android:label="@string/title_activity_check_plan" />
+        <activity
+            android:name=".ui.PlanListActivity"
+            android:label="@string/title_activity_plan_list" />
+        <activity
+            android:name=".ui.MaintainActivity"
+            android:label="@string/title_activity_maintain"></activity>
     </application>
 
 </manifest>

@@ -22,6 +22,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.model.Dianlang;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
 import org.json.JSONArray;
@@ -104,7 +105,7 @@ public class YearNhSpentFragment extends Fragment{
 		barChart.invalidate();
 	}
 	private void NhyearPost() {
-		String posturls = "http://119.23.37.145:8080/S2SH/yearNhld.do";
+		String posturls = UrlStone.Url+"yearNhld.do";
 		HttpTool tol = new HttpTool(posturls);
 		tol.setHandler(sHandler);
 		new Thread(tol).start();

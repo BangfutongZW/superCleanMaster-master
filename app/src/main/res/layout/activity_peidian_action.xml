@@ -41,11 +41,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:paddingLeft="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/label_text"
-                    android:text="电压(V)"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,12 +71,7 @@
                 android:orientation="vertical"
                 android:paddingLeft="10dp">
 
-                <TextView
-                    android:id="@+id/tv_pd_dy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/label_text"
-                    android:text="250"/>
+
                 <TextView
                     android:id="@+id/tv_pd_dlA"
                     android:layout_width="wrap_content"

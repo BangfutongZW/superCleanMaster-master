@@ -217,6 +217,12 @@
                         android:layout_height="wrap_content"
                         android:text="#4"
                         android:visibility="invisible"/>
+                    <TextView
+                        android:id="@+id/pd_main_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#5"
+                        android:visibility="invisible"/>
 
 
                 </LinearLayout>
@@ -260,6 +266,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="#3"
+                        android:textColor="@color/gplus_color_2"
+                        android:visibility="invisible"/>
+                    <TextView
+                        android:id="@+id/tv_kt_mian4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#4"
+                        android:textColor="@color/gplus_color_2"
+                        android:visibility="invisible"/>
+                    <TextView
+                        android:id="@+id/tv_kt_mian5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#5"
                         android:textColor="@color/gplus_color_2"
                         android:visibility="invisible"/>
 

@@ -33,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         />
+
     <RelativeLayout
         android:id="@+id/rl_project_check"
         android:layout_marginTop="20dp"
@@ -52,16 +53,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="海翔广场"
             android:textSize="13dp"
             android:textColor="@color/label_text"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/arrow_right_red"/>
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
@@ -80,12 +75,15 @@
             android:textSize="13sp"
             android:layout_marginLeft="10dp"
             />
-        <ImageView
+        <CheckBox
+            android:id="@+id/checknote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/arrow_right_red"/>
+            android:text="接收报警"
+            android:textColor="@color/textcolor_mine_normal" />
+
     </RelativeLayout>
 
     <View

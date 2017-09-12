@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.model.Surveyelect;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 import com.yzy.supercleanmaster.views.ItemCardView;
 
@@ -36,10 +37,12 @@ public class GpdActivity extends Activity {
     RelativeLayout pd_card2;
     RelativeLayout pd_card3;
     RelativeLayout pd_card4;
+    RelativeLayout pd_card5;
     LinearLayout cv_card1;
     LinearLayout cv_card2;
     LinearLayout cv_card3;
     LinearLayout cv_card4;
+    LinearLayout cv_card5;
     Handler sHandler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -58,7 +61,7 @@ public class GpdActivity extends Activity {
                 Log.e("smac",msgStr);
                 String[] sa=msgStr.split(",");
                 for(String a:sa){
-                    updateView(a);
+                    updateView(a.trim());
                 }
             }else {
                 Toast.makeText(getApplicationContext(), "网络连接出错...", Toast.LENGTH_SHORT).show();
@@ -79,37 +82,42 @@ public class GpdActivity extends Activity {
         cv_card2=(LinearLayout)findViewById(R.id.cv_card2);
         cv_card3=(LinearLayout)findViewById(R.id.cv_card3);
         cv_card4=(LinearLayout)findViewById(R.id.cv_card4);
+        cv_card5=(LinearLayout)findViewById(R.id.cv_card5);
         pd_card1=(RelativeLayout)findViewById(R.id.pd_card1);
         pd_card2=(RelativeLayout)findViewById(R.id.pd_card2);
         pd_card3=(RelativeLayout)findViewById(R.id.pd_card3);
         pd_card4=(RelativeLayout)findViewById(R.id.pd_card4);
+        pd_card5=(RelativeLayout)findViewById(R.id.pd_card5);
+        if(UrlStone.Url==UrlStone.commmonUrl){
+            pd_card4.setVisibility(View.INVISIBLE);
+            pd_card5.setVisibility(View.INVISIBLE);
+        }
+        /*if(UrlStone.Url.equals("http://119.23.37.145:8080/S2SHDF/")){
 
-        String posturls = "http://119.23.37.145:8080/S2SH/checkMacld.do";
+        }*/
+        String posturls = UrlStone.Url+"checkMacld.do";
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();
     }
     private void updateView(String index){
-        switch (index){
-            case "1":
-                Log.e("smac","ok1");
-                cv_card1.setVisibility(View.GONE);
-                pd_card1.setOnClickListener(new myClickListener());
-                break;
-            case "2":
-                cv_card2.setVisibility(View.GONE);
-                pd_card2.setOnClickListener(new myClickListener());
-                break;
-            case "3":
-                cv_card3.setVisibility(View.GONE);
-                pd_card3.setOnClickListener(new myClickListener());
-                break;
-            case "4":
-                cv_card4.setVisibility(View.GONE);
-                pd_card4.setOnClickListener(new myClickListener());
-                break;
-            default:
-                break;
+        if("1".equals(index)){
+            cv_card1.setVisibility(View.GONE);
+            pd_card1.setOnClickListener(new myClickListener());
+        }else if("2".equals(index)){
+            cv_card2.setVisibility(View.GONE);
+            pd_card2.setOnClickListener(new myClickListener());
+        }else if("3".equals(index)){
+            cv_card3.setVisibility(View.GONE);
+            pd_card3.setOnClickListener(new myClickListener());
+        }else if("4".equals(index)){
+            cv_card4.setVisibility(View.GONE);
+            pd_card4.setOnClickListener(new myClickListener());
+        }else if("5".equals(index)){
+            cv_card5.setVisibility(View.GONE);
+            pd_card5.setOnClickListener(new myClickListener());
+        }else {
+            Log.e("smac",index+"#null");
         }
     }
     class  myClickListener implements View.OnClickListener{
@@ -129,6 +137,9 @@ public class GpdActivity extends Activity {
                     break;
                 case R.id.pd_card4:
                     index="4";
+                    break;
+                case R.id.pd_card5:
+                    index="5";
                     break;
                 default:
                     break;

@@ -64,4 +64,8 @@
     <string name="title_activity_inspect">InspectActivity</string>
     <string name="title_activity_note_set">通知设置</string>
     <string name="title_activity_cheak_mian">本次巡检</string>
+    <string name="title_activity_create_user">新建用户</string>
+    <string name="title_activity_check_plan">巡检计划</string>
+    <string name="title_activity_plan_list">PlanListActivity</string>
+    <string name="title_activity_maintain">保养统计</string>
 </resources>

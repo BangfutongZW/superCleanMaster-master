@@ -1,7 +1,9 @@
 package com.yzy.supercleanmaster.ui;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -40,6 +42,8 @@ public class LoginActivity extends Activity {
     private String password;
     private SharedPreferences sp=null;
     private ProgressDialog proDialog;
+    private String[] items = {"海翔广场","鼎丰大厦","联合广场"};
+    private int curr_index;
     public Handler handler = new Handler(){
         public void handleMessage(android.os.Message msg) {
             String msgStr=null;
@@ -55,7 +59,7 @@ public class LoginActivity extends Activity {
                 msgStr = msgStr.replaceAll("\ufeff", "");
                 msgStr = msgStr.replace("\\", "");
                 msgStr = msgStr.substring(msgStr.indexOf("["),msgStr.lastIndexOf("]")+1);
-                Log.e("userData",msgStr);
+
                 try {
                     JSONArray arry=new JSONArray(msgStr);
                     JSONObject obj=arry.getJSONObject(0);
@@ -64,7 +68,8 @@ public class LoginActivity extends Activity {
                     String power=obj.getString("power");
                     String person=obj.getString("realName");
                     String team=obj.getString("team")+"";
-                    String local=obj.getString("local");
+                    String local=obj.getString("local").trim();
+                    UrlStone.local=local;
                     if("hx".equals(local)||"gl".equals(local)){
                         UrlStone.Url="http://119.23.37.145:8080/S2SH/";
                     }else if("df".equals(local)){
@@ -79,10 +84,15 @@ public class LoginActivity extends Activity {
                         editor.putString("USER_PERSON", person);
                         editor.putString("USER_TEAM", team);
                         editor.commit();
-                        Intent intent = new Intent(getApplicationContext(),
-                                MainActivity.class);
-                        startActivity(intent);
-                        LoginActivity.this.finish();
+                        if("gl".equals(local)){
+                            showSingleAlertDialog();
+                        }else {
+                            Intent intent = new Intent(getApplicationContext(),
+                                    MainActivity.class);
+                            startActivity(intent);
+                            LoginActivity.this.finish();
+                        }
+
                     }else {
                         Toast.makeText(getApplicationContext(), "密码错误", Toast.LENGTH_SHORT).show();
                         proDialog.dismiss();
@@ -101,6 +111,54 @@ public class LoginActivity extends Activity {
 
         };
     };
+    private AlertDialog alertDialog2;
+    public void showSingleAlertDialog(){
+
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+        alertBuilder.setTitle("支持项目");
+        alertBuilder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface arg0, int index) {
+                //Toast.makeText(SettingActivity.this, items[index], Toast.LENGTH_SHORT).show();
+                curr_index=index;
+            }
+
+        });
+        alertBuilder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                //TODO 业务逻辑代码
+                //Toast.makeText(SettingActivity.this, arg1+"..", Toast.LENGTH_SHORT).show();
+                if(curr_index==0){
+                    UrlStone.local="hx";
+                    UrlStone.Url="http://119.23.37.145:8080/S2SH/";
+                }else if(curr_index==1){
+                    UrlStone.local="df";
+                    UrlStone.Url="http://119.23.37.145:8080/S2SHDF/";
+                }
+                // 关闭提示框
+                alertDialog2.dismiss();
+                Intent intent = new Intent(getApplicationContext(),
+                        MainActivity.class);
+                startActivity(intent);
+                LoginActivity.this.finish();
+            }
+        });
+        alertBuilder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                // TODO 业务逻辑代码
+
+                // 关闭提示框
+                alertDialog2.dismiss();
+            }
+        });
+        alertDialog2 = alertBuilder.create();
+        alertDialog2.show();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,6 +201,7 @@ public class LoginActivity extends Activity {
             proDialog.setMessage("正在登录中...");
             proDialog.show();
             String posturls =UrlStone.commmonUrl+ "loadUserld.do";
+            Log.e("userDatapost",posturls);
             posturls=posturls+"?username="+username;
             HttpTool tol = new HttpTool(posturls);
             tol.setHandler(handler);

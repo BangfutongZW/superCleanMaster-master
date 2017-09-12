@@ -9,15 +9,17 @@
     tools:context="com.yzy.supercleanmaster.ui.UserInfoActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_create_user"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/blue_check"
+        android:visibility="gone"
         android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13sp"
-            android:text="更换用户头像"
+            android:text="新建用户"
             android:textColor="@color/white"/>
     </RelativeLayout>
 

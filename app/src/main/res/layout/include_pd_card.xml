@@ -284,11 +284,47 @@
             android:background="#19000000" />
 
         <RelativeLayout
-
+            android:id="@+id/pd_card5"
             android:layout_width="0.0dip"
             android:layout_height="fill_parent"
-            android:layout_weight="1.0">
-
+            android:layout_weight="1.0"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_pd"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/icon_card"
+                    android:textSize="12sp"
+                    android:text="变压器#5"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/cv_card5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_pd_n"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/label_text"
+                    android:textSize="12sp"
+                    android:text="变压器#5"/>
+            </LinearLayout>
 
 
 

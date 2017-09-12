@@ -11,10 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yzy.supercleanmaster.R;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
@@ -35,6 +37,7 @@ public class UserInfoActivity extends Activity {
     private EditText et_qpass;
     private Button btn_update;
     private String pass="";
+    private RelativeLayout rl_create_user;
 
     public Handler handler = new Handler(){
         public void handleMessage(android.os.Message msg) {
@@ -59,14 +62,13 @@ public class UserInfoActivity extends Activity {
                     String power=obj.getString("power");
                     tv_username.setText(name);
                     if("0".equals(power)){
-                        usr_type.setText("管理员");
-                        tv_proname.setText("励科机电");
+                        usr_type.setText("全局管理员");
+                        seeCreateUser();
                     }else if("1".equals(power)){
+                        usr_type.setText("项目管理员");
+                        seeCreateUser();
+                    }else {
                         usr_type.setText("操作员");
-                        tv_proname.setText("海翔广场");
-                    }else if("2".equals(power)){
-                        usr_type.setText("操作员");
-                        tv_proname.setText("鼎丰大厦");
                     }
 
 
@@ -120,7 +122,7 @@ public class UserInfoActivity extends Activity {
 
     private void initData() {
         sp=getSharedPreferences("saveuser", Context.MODE_WORLD_READABLE);
-        String posturls = "http://119.23.37.145:8080/S2SH/loadUserld.do";
+        String posturls = UrlStone.commmonUrl+"loadUserld.do";
         String username=sp.getString("USER_NAME","");
         if (username!=null) {
             posturls = posturls + "?username=" + username;
@@ -129,6 +131,16 @@ public class UserInfoActivity extends Activity {
             new Thread(tol).start();
         }
 
+    }
+    private  void seeCreateUser(){
+        rl_create_user.setVisibility(View.VISIBLE);
+        rl_create_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(UserInfoActivity.this,CreateUserActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView() {
@@ -140,6 +152,7 @@ public class UserInfoActivity extends Activity {
         et_xpass=(EditText)findViewById(R.id.et_xpass);
         et_qpass=(EditText)findViewById(R.id.et_qpass);
         btn_update=(Button)findViewById(R.id.btn_update);
+        rl_create_user=(RelativeLayout)findViewById(R.id.rl_create_user);
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +174,7 @@ public class UserInfoActivity extends Activity {
     }
 
     private void updateUserpass() {
-        String posturls = "http://119.23.37.145:8080/S2SH/updateUserpassld.do";
+        String posturls = UrlStone.commmonUrl+"updateUserpassld.do";
         String username=tv_username.getText().toString();
         String password=et_xpass.getText().toString();
         if (username!=null) {

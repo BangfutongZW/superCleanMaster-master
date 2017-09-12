@@ -122,24 +122,52 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:layout_marginRight="1dp">
-                <ImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/xjjh"/>
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/xjjh"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="巡检统计"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
 
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/rl_bytj"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:layout_marginRight="1dp">
-                <ImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/bytj"/>
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/bytj"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="保养统计"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
 
             </RelativeLayout>
             <!--<RelativeLayout
@@ -177,16 +205,31 @@
             android:layout_weight="1"
             android:layout_marginTop="1dp">
             <RelativeLayout
+                android:id="@+id/rl_lsrw"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:layout_marginRight="1dp">
-                <ImageView
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/lsrw"/>
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/lsrw"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="巡检计划"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"/>
+                </LinearLayout>
 
             </RelativeLayout>
             <RelativeLayout
@@ -195,11 +238,25 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:layout_marginRight="1dp">
-                <ImageView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/gdgz"/>
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/gdgz"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="保养计划"
+                        android:textColor="@color/text_color"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
 
             </RelativeLayout>
             <!--<RelativeLayout

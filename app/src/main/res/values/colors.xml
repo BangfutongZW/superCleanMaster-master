@@ -76,6 +76,11 @@
     <color name="textcolor_mine_red">#f56a30</color>
     <color name="details">#898787</color>
 
+    <color name="grey">#C1CDCD</color>
+    <color name="yellow">#ff7300</color>
+    <color name="time_line_bg">#b3b3b3</color>
+    <color name="head_line_bg">#cccccc</color>
+
     <integer-array name="gplus_colors">
         <item>@color/gplus_color_1</item>
         <item>@color/gplus_color_2</item>

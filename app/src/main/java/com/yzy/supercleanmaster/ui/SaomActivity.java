@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseActivity;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 import com.zxing.android.CaptureActivity;
 
@@ -31,8 +32,6 @@ import java.net.URLDecoder;
 public class SaomActivity extends BaseActivity {
     private SharedPreferences sp=null;
     TextView scan_tv;
-    Button chart_btn;
-    Button scan_btn;
     private static final String DECODED_CONTENT_KEY = "codedContent";
 
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
@@ -68,9 +67,6 @@ public class SaomActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saom);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        scan_btn=(Button)findViewById(R.id.scan_btn);
-        chart_btn=(Button)findViewById(R.id.chart_btn);
-        scan_tv=(TextView)findViewById(R.id.scan_tv);
         /*scan_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,7 +114,6 @@ public class SaomActivity extends BaseActivity {
         }else if("2".equals(power)&&"Lk_Econ_DF".equals(content.substring(0,10))){
             insertDoor(door);
         }else if("0".equals(power)&&"Lk_Econ".equals(content.substring(0,7))){
-            Log.e("saom","open");
             insertDoor(door);
         }else {
             Toast.makeText(getApplicationContext(), "当前用户没有开门权限..", Toast.LENGTH_SHORT).show();
@@ -129,7 +124,7 @@ public class SaomActivity extends BaseActivity {
 
     private void insertDoor(String door) {
         String username=sp.getString("USER_NAME","");
-        String posturls = "http://119.23.37.145:8080/S2SH/opendoorld.do";
+        String posturls = UrlStone.commmonUrl+"opendoorld.do";
         posturls=posturls+"?door="+door+"&user="+username;
         Log.e("saom",posturls);
         HttpTool tol = new HttpTool(posturls);

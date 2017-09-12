@@ -23,6 +23,7 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.model.AirSurveyelect;
 import com.yzy.supercleanmaster.model.Surveyelect;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
 import org.json.JSONArray;
@@ -115,7 +116,7 @@ public class ApeidianActionActivity extends Activity {
         //proDialog.setMessage("正在加载中...");
         //proDialog.show();
         Log.e("apeid","获取数据");
-        String posturls = "http://119.23.37.145:8080/S2SH/airsurveyelectld.do";
+        String posturls = UrlStone.Url+"airsurveyelectld.do";
         posturls=posturls+"?index="+index;
         Log.e("apeid","index"+index);
         HttpTool tol = new HttpTool(posturls);

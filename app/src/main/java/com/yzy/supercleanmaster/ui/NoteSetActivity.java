@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.igexin.sdk.PushManager;
 import com.yzy.supercleanmaster.R;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 
 import org.json.JSONArray;
@@ -31,6 +33,7 @@ public class NoteSetActivity extends Activity {
     private String username;
     private Button btn_noteset;
     private String cid;
+
 
     public Handler shandler = new Handler(){
         public void handleMessage(android.os.Message msg) {
@@ -106,18 +109,19 @@ public class NoteSetActivity extends Activity {
         et_setteam=(EditText)findViewById(R.id.et_setteam);
         btn_noteset=(Button)findViewById(R.id.btn_noteset);
 
+
         btn_noteset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(et_setteam.length()>0){
                     String team=et_setteam.getText().toString();
-                    String posturls = "http://119.23.37.145:8080/S2SH/updateUserteamld.do";
+                    String posturls = UrlStone.commmonUrl+"updateUserteamld.do";
                     posturls = posturls + "?name=" + username+"&team="+team;
                     HttpTool tol = new HttpTool(posturls);
                     tol.setHandler(shandler);
                     new Thread(tol).start();
 
-                    String posturls1 = "http://119.23.37.145:8080/S2SH/updateClientIdld.do";
+                    String posturls1 = UrlStone.commmonUrl+"updateClientIdld.do";
                     posturls1 = posturls1 + "?name=" + username+"&cid="+cid;
                     HttpTool tol1 = new HttpTool(posturls1);
                     tol1.setHandler(phandler);

@@ -18,7 +18,7 @@ public class HttpTool implements Runnable{
 
 	private String url = "";
 	private String body = "";
-	private int timeout = 0;
+	private int timeout = 10000;
 	private Handler handler = null;
 
 	/**
@@ -71,7 +71,7 @@ public class HttpTool implements Runnable{
 				result = sb.toString().trim();
 			}
 		} catch (IOException e) {
-
+			e.printStackTrace();
 		}finally{
 			if(httpConn != null)
 				httpConn.disconnect();

@@ -16,6 +16,7 @@ import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.adapter.AlarmShowAdapter;
 import com.yzy.supercleanmaster.base.BaseSwipeBackActivity;
 import com.yzy.supercleanmaster.model.AlarmInfo;
+import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 import com.yzy.supercleanmaster.widget.textcounter.CounterView;
 
@@ -113,7 +114,8 @@ public class AlarmListActivity extends BaseSwipeBackActivity {
 
     private void getListData() {
         //String posturls = Constant.TestRUL+"allCust.do";
-        String posturls = "http://119.23.37.145:8080/S2SH/todayalarmld.do";
+        String posturls = UrlStone.commmonUrl+"todayalarmld.do";
+        posturls=posturls+"?local="+UrlStone.local;
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(sHandler);
         new Thread(tol).start();

@@ -18,6 +18,8 @@ import butterknife.OnClick;
 
 public class CheckActivity extends BaseSwipeBackActivity{
     private RelativeLayout rl_xjjh;
+    private RelativeLayout rl_lsrw;
+    private RelativeLayout rl_bytj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,22 @@ public class CheckActivity extends BaseSwipeBackActivity{
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(CheckActivity.this, CheakMianActivity.class);
+                startActivity(intent);
+            }
+        });
+        rl_lsrw=(RelativeLayout)findViewById(R.id.rl_lsrw);
+        rl_lsrw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CheckActivity.this, checkPlanActivity.class);
+                startActivity(intent);
+            }
+        });
+        rl_bytj=(RelativeLayout)findViewById(R.id.rl_bytj);
+        rl_bytj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CheckActivity.this, MaintainActivity.class);
                 startActivity(intent);
             }
         });
