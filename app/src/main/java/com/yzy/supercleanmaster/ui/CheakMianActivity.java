@@ -63,6 +63,7 @@ public class CheakMianActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             String msgStr=(String) msg.obj;
+            slist=new ArrayList<String>();
             if (msgStr != null) {
                 msgStr = msgStr.replaceAll("\ufeff", "");
                 msgStr = msgStr.replace("\\", "");
@@ -70,7 +71,6 @@ public class CheakMianActivity extends Activity {
 
                 msgStr = msgStr.substring(msgStr.indexOf("[")+1,msgStr.lastIndexOf("]"));
                 String[] allstr=msgStr.split(",");
-                slist=new ArrayList<String>();
                 for (String str:allstr){
                     slist.add(str.replace("\"",""));
                 }
@@ -83,19 +83,24 @@ public class CheakMianActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             String msgStr=(String) msg.obj;
-            if (msgStr != null) {
+            if (msgStr != null&&msgStr.length()>5) {
                 msgStr = msgStr.replaceAll("\ufeff", "");
                 msgStr = msgStr.replace("\\", "");
-            }
             msgStr = msgStr.substring(msgStr.indexOf("{"),msgStr.lastIndexOf("}")+1);
-
             try {
                 JSONObject obj = new JSONObject(msgStr);
                 String result=obj.getString("x");
-                Log.e("check",result);
-
+                if("ok".equals(result)){
+                    Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "提交失败，请检查网络", Toast.LENGTH_SHORT).show();
+                }
             }catch (JSONException e){
                 e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "提交失败，请检查网络", Toast.LENGTH_SHORT).show();
+            }
+            }else{
+                Toast.makeText(getApplicationContext(), "提交失败，请检查网络", Toast.LENGTH_SHORT).show();
             }
             super.handleMessage(msg);
         }
@@ -211,7 +216,7 @@ public class CheakMianActivity extends Activity {
                 for (int i=21;i<34;i++){
                     rl[i].setVisibility(View.GONE);
                 }
-                for (int i=40;i<45;i++){
+                for (int i=40;i<46;i++){
                     rl[i].setVisibility(View.GONE);
                 }
                 try {

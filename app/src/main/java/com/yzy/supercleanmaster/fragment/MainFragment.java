@@ -447,7 +447,7 @@ public class MainFragment extends BaseFragment {
                 break;
         }
     }
-    private void updateAirView(String a){
+        private void updateAirView(String a){
         switch (a){
             case "1":
                 tv_kt_mian1.setVisibility(View.VISIBLE);

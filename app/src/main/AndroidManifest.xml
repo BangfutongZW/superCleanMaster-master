@@ -352,7 +352,10 @@
             android:label="@string/title_activity_plan_list" />
         <activity
             android:name=".ui.MaintainActivity"
-            android:label="@string/title_activity_maintain"></activity>
+            android:label="@string/title_activity_maintain" />
+        <activity
+            android:name=".ui.MainPlanActivity"
+            android:label="@string/title_activity_main_plan"></activity>
     </application>
 
 </manifest>

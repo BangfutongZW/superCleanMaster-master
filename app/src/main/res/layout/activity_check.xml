@@ -12,6 +12,7 @@
 
 
     <LinearLayout
+        android:id="@+id/ll_wddb"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal"
@@ -56,10 +57,11 @@
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
                         android:textColor="@color/yello_text"
-                        android:text="1"
+                        android:text="0"
                         android:gravity="right"
                         />
                     <TextView
+                        android:id="@+id/tv_bjgs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
@@ -89,6 +91,7 @@
                         android:textColor="@color/white"
                         android:text="个巡检"
                         />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
