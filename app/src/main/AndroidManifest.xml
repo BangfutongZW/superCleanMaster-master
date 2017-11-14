@@ -105,21 +105,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyTranslucentAppTheme" />
         <activity
-            android:name=".ui.AutoStartManageActivity"
-            android:label="@string/app_autostart_manage"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTranslucentAppTheme" />
-        <activity
             android:name=".ui.SoftwareManageActivity"
             android:label="@string/app_software_manage"
             android:screenOrientation="portrait"
             android:theme="@style/MyTranslucentAppTheme" />
         <activity
             android:name=".base.FragmentContainerActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTranslucentAppTheme" />
-        <activity
-            android:name=".ui.AboutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyTranslucentAppTheme" />
         <activity
@@ -151,9 +142,6 @@
 
         <service
             android:name=".service.CleanerService"
-            android:exported="false" />
-        <service
-            android:name=".service.CoreService"
             android:exported="false" />
 
         <receiver android:name=".receiver.BootCompleteReceiver">
@@ -355,7 +343,22 @@
             android:label="@string/title_activity_maintain" />
         <activity
             android:name=".ui.MainPlanActivity"
-            android:label="@string/title_activity_main_plan"></activity>
+            android:label="@string/title_activity_main_plan" />
+        <activity
+            android:name=".ui.MaintplanMainActivity"
+            android:label="@string/title_activity_maintplan_main" />
+        <activity
+            android:name=".ui.CheckDayActivity"
+            android:label="@string/title_activity_check_day" />
+        <activity
+            android:name=".ui.MainHistoryListActivity"
+            android:label="@string/title_activity_main_history_list" />
+        <activity
+            android:name=".ui.MainHistoryActivity"
+            android:label="@string/title_activity_main_history" />
+        <activity
+            android:name=".ui.MainPlanDaoActivity"
+            android:label="@string/title_activity_main_plan_dao"></activity>
     </application>
 
 </manifest>

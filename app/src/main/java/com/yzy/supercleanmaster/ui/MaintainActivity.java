@@ -24,6 +24,11 @@ import com.zxing.android.CaptureActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import static android.R.attr.data;
+
 public class MaintainActivity extends Activity {
     private RelativeLayout rl_check;
     private Button rl_sub;
@@ -120,7 +125,12 @@ public class MaintainActivity extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(),"扫码结果：" + content,Toast.LENGTH_LONG).show();
                 String posturls = UrlStone.Url+"updateMaintenanceld.do";
-                posturls=posturls+"?id="+content+"&completion="+et_bz_m.getText().toString();
+                String completion=et_bz_m.getText().toString();
+                try {
+                    posturls=posturls+"?id="+content+"&completion="+ URLEncoder.encode(completion, "utf-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 HttpTool tol = new HttpTool(posturls);
                 tol.setHandler(sHandler);
                 new Thread(tol).start();

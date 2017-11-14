@@ -26,20 +26,20 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <!--<ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/small_icon" />
+            android:src="@drawable/small_icon" />-->
 
-        <TextView
+        <!--<TextView
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="LK-econ 初始版"
+            android:text="励科易控 初始版"
             android:textColor="#b3ffffff"
-            android:textSize="20sp" />
+            android:textSize="20sp" />-->
 
     </LinearLayout>
 

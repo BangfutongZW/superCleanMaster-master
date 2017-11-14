@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerviewenhanced/recyclerviewenhanced.iml" filepath="$PROJECT_DIR$/recyclerviewenhanced/recyclerviewenhanced.iml" />
       <module fileurl="file://$PROJECT_DIR$/superCleanMaster-master.iml" filepath="$PROJECT_DIR$/superCleanMaster-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swipeMenuListView/swipeMenuListView.iml" filepath="$PROJECT_DIR$/swipeMenuListView/swipeMenuListView.iml" />
     </modules>
   </component>
 </project>

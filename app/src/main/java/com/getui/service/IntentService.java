@@ -31,15 +31,7 @@ public class IntentService extends GTIntentService {
         String taskid = msg.getTaskId();
         String messageid = msg.getMessageId();*/
         byte[] payload = msg.getPayload();
-        /*String pkg = msg.getPkgName();
-        String cid = msg.getClientId();
 
-        // 第三方回执调用接口，actionid范围为90000-90999，可根据业务场景执行
-        boolean result = PushManager.getInstance().sendFeedbackMessage(context, taskid, messageid, 90001);
-        Log.e(TAG, "call sendFeedbackMessage = " + (result ? "success" : "failed"));
-
-        Log.e(TAG, "onReceiveMessageData -> " + "appid = " + appid + "\ntaskid = " + taskid + "\nmessageid = " + messageid + "\npkg = " + pkg
-                + "\ncid = " + cid);*/
 
         if (payload == null) {
             Log.e(TAG, "receiver payload = null");
@@ -48,11 +40,7 @@ public class IntentService extends GTIntentService {
             Log.e(TAG, "receiver payload = " + data);
 
             // 测试消息为了观察数据变化
-            /*if (data.equals("收到一条透传测试消息")) {
-                data = data + "-" + cnt;
-                cnt++;
-            }
-            sendMessage(data, 0);*/
+
         }
 
     }

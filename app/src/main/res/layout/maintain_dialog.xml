@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:id="@+id/rl_0m"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -41,18 +41,18 @@
                 android:layout_marginRight="10dp"
                 android:textSize="13sp"
                 android:text="xx"/>
-        </RelativeLayout>
+        </RelativeLayout>-->
 
 
 
         <EditText
-            android:id="@+id/et_bz_m"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_margin="15dp"
-            android:hint="点击填写完成情况"
-            android:inputType="textMultiLine"
-            android:background="@drawable/shape_edit"/>
+        android:id="@+id/et_bz_m"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_margin="15dp"
+        android:hint="点击填写完成情况"
+        android:inputType="textMultiLine"
+        android:background="@drawable/shape_edit"/>
 
     </LinearLayout>
 

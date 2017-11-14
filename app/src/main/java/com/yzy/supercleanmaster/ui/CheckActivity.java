@@ -2,17 +2,14 @@ package com.yzy.supercleanmaster.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseSwipeBackActivity;
@@ -22,14 +19,12 @@ import com.yzy.supercleanmaster.utils.HttpTool;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.InjectView;
-import butterknife.OnClick;
-
-public class CheckActivity extends BaseSwipeBackActivity{
+public class CheckActivity extends BaseSwipeBackActivity {
     private RelativeLayout rl_xjjh;
     private RelativeLayout rl_lsrw;
     private RelativeLayout rl_bytj;
-    private TextView tv_bjgs;
+    private RelativeLayout rl_byjl;
+    private TextView tv_bjgs,tv_xjgs;
     private LinearLayout ll_wddb;
 
     Handler sHandler=new Handler(){
@@ -48,13 +43,16 @@ public class CheckActivity extends BaseSwipeBackActivity{
             try {
                 JSONObject obj = new JSONObject(msgStr);
                 String count=obj.getString("x");
+                String county=obj.getString("y");
                 tv_bjgs.setText(count);
+                tv_xjgs.setText(county);
             }catch (JSONException e){
                 e.printStackTrace();
             }
             super.handleMessage(msg);
         }
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +62,6 @@ public class CheckActivity extends BaseSwipeBackActivity{
         initView();
         initData();
     }
-
     private void initData() {
         String posturls = UrlStone.Url+"countMaintld.do";
         HttpTool tol = new HttpTool(posturls);
@@ -73,15 +70,16 @@ public class CheckActivity extends BaseSwipeBackActivity{
     }
 
     private void initView() {
+        tv_xjgs=(TextView)findViewById(R.id.tv_xjgs);
         tv_bjgs=(TextView)findViewById(R.id.tv_bjgs);
-        ll_wddb=(LinearLayout)findViewById(R.id.ll_wddb);
+        /*ll_wddb=(LinearLayout)findViewById(R.id.ll_wddb);
         ll_wddb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CheckActivity.this, MainPlanActivity.class);
+                Intent intent=new Intent(CheckActivity.this, MaintplanMainActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
         rl_xjjh=(RelativeLayout)findViewById(R.id.rl_xjjh);
         rl_xjjh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +92,7 @@ public class CheckActivity extends BaseSwipeBackActivity{
         rl_lsrw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CheckActivity.this, checkPlanActivity.class);
+                Intent intent=new Intent(CheckActivity.this, CheckDayActivity.class);
                 startActivity(intent);
             }
         });
@@ -102,7 +100,15 @@ public class CheckActivity extends BaseSwipeBackActivity{
         rl_bytj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CheckActivity.this, MaintainActivity.class);
+                Intent intent=new Intent(CheckActivity.this, MaintplanMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        rl_byjl=(RelativeLayout)findViewById(R.id.rl_byjl);
+        rl_byjl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CheckActivity.this, MainHistoryActivity.class);
                 startActivity(intent);
             }
         });

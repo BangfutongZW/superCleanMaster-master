@@ -17,12 +17,7 @@ public class StatusExpandAdapter extends BaseExpandableListAdapter {
 	private LayoutInflater inflater = null;
 	private List<GroupStatusEntity> groupList;
 
-	/**
-	 * 构造方法
-	 * 
-	 * @param context
-	 * @param oneList
-	 */
+
 	public StatusExpandAdapter(Context context,
 			List<GroupStatusEntity> group_list) {
 		this.groupList = group_list;
@@ -30,18 +25,14 @@ public class StatusExpandAdapter extends BaseExpandableListAdapter {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
-	/**
-	 * 返回一级Item总数
-	 */
+
 	@Override
 	public int getGroupCount() {
 		// TODO Auto-generated method stub
 		return groupList.size();
 	}
 
-	/**
-	 * 返回二级Item总数
-	 */
+
 	@Override
 	public int getChildrenCount(int groupPosition) {
 		if (groupList.get(groupPosition).getChildList() == null) {
@@ -51,18 +42,13 @@ public class StatusExpandAdapter extends BaseExpandableListAdapter {
 		}
 	}
 
-	/**
-	 * 获取一级Item内容
-	 */
 	@Override
 	public Object getGroup(int groupPosition) {
 		// TODO Auto-generated method stub
 		return groupList.get(groupPosition);
 	}
 
-	/**
-	 * 获取二级Item内容
-	 */
+
 	@Override
 	public Object getChild(int groupPosition, int childPosition) {
 		return groupList.get(groupPosition).getChildList().get(childPosition);

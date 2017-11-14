@@ -15,6 +15,7 @@ public class Maintenance implements Serializable{
 	private String whether;			//是否执行
 	private String implementation;	//执行情况
 	private String maintenancecategory;//保养类别
+	private String executor;//执行人
 	private String content;
 	private String degree;
 	
@@ -48,6 +49,8 @@ public class Maintenance implements Serializable{
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
+	public String getExecutor(){return  executor;}
+	public void setExecutor(String executor){this.executor=executor;}
 	public String getWhether() {
 		return whether;
 	}

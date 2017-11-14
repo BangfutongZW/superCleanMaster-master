@@ -44,15 +44,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     >
+
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="28sp"
-                        android:textColor="@color/yello_text"
-                        android:text="0"
-                        android:gravity="right"
-                        />
-                    <TextView
+                        android:id="@+id/tv_xjgs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
@@ -76,13 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="28sp"
-                        android:textColor="@color/white"
-                        android:text="个工单"
-                        />
+
                     <TextView
                         android:id="@+id/tv_xj"
                         android:layout_width="match_parent"
@@ -139,7 +127,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="巡检统计"
+                        android:text="巡检任务"
                         android:textColor="@color/text_color"
                         android:textSize="12sp"/>
                 </LinearLayout>
@@ -166,7 +154,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="保养统计"
+                        android:text="保养任务"
                         android:textColor="@color/text_color"
                         android:textSize="12sp"/>
                 </LinearLayout>
@@ -235,7 +223,9 @@
                 </LinearLayout>
 
             </RelativeLayout>
+
             <RelativeLayout
+                android:id="@+id/rl_byjl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -255,7 +245,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="保养计划"
+                        android:text="保养记录"
                         android:textColor="@color/text_color"
                         android:textSize="12sp"/>
                 </LinearLayout>

@@ -8,8 +8,8 @@ android {
         applicationId "com.yzy.supercleanmaster"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 17
-        versionName "1.60"
+        versionCode 20
+        versionName "2.00"
 
         manifestPlaceholders = [
                 GETUI_APP_ID    : "JVihp5J4Es71ZGDe2sSg96",
@@ -23,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {

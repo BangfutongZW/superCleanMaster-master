@@ -69,4 +69,9 @@
     <string name="title_activity_plan_list">PlanListActivity</string>
     <string name="title_activity_maintain">保养统计</string>
     <string name="title_activity_main_plan">MainPlanActivity</string>
+    <string name="title_activity_maintplan_main">保养任务</string>
+    <string name="title_activity_check_day">巡检计划</string>
+    <string name="title_activity_main_history_list">保养记录</string>
+    <string name="title_activity_main_history">设备保养</string>
+    <string name="title_activity_main_plan_dao">保养任务</string>
 </resources>

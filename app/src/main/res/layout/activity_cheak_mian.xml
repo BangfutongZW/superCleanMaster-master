@@ -21,7 +21,7 @@
             android:textSize="18sp"
             android:gravity="center_vertical"
             android:layout_marginLeft="15dp"
-            android:text="选择位置或设备"/>
+            android:text="扫码选择设备"/>
         <ImageView
             android:layout_width="30sp"
             android:layout_height="30sp"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/label_text"
-            android:text="巡检号："/>
+            android:text="本次巡检号："/>
         <TextView
             android:id="@+id/tv_xjh"
             android:layout_marginLeft="20dp"
@@ -53,6 +53,27 @@
             android:textColor="@color/label_text"
             />
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="18dp">
+        <TextView
+            android:layout_marginLeft="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/label_text"
+            android:text="本次巡检时间段："/>
+        <TextView
+            android:id="@+id/tv_xjsj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/label_text"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -68,12 +89,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/label_text"
-            android:text="已巡检："/>
+            android:text="本次待巡检设备："/>
         <TextView
             android:id="@+id/tv_yxj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/label_text"
+            android:textColor="@color/title_bg"
+
             />
     </LinearLayout>
 

@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yzy.supercleanmaster.R;
-import com.yzy.supercleanmaster.base.BaseActivity;
 import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
 import com.zxing.android.CaptureActivity;
@@ -29,7 +28,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 
-public class SaomActivity extends BaseActivity {
+public class SaomActivity extends Activity {
     private SharedPreferences sp=null;
     TextView scan_tv;
     private static final String DECODED_CONTENT_KEY = "codedContent";

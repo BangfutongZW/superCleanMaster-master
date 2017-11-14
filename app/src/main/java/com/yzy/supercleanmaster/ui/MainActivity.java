@@ -31,7 +31,6 @@ import com.yzy.supercleanmaster.base.BaseActivity;
 import com.yzy.supercleanmaster.fragment.MainFragment;
 import com.yzy.supercleanmaster.fragment.NavigationDrawerFragment;
 import com.yzy.supercleanmaster.fragment.RelaxFragment;
-import com.yzy.supercleanmaster.fragment.SettingsFragment;
 import com.yzy.supercleanmaster.service.UpdateVersionService;
 import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;

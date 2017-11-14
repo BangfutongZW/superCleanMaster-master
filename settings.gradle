@@ -1,2 +1,4 @@
-include ':app', ':library', ':MPChartLib'
+include ':app', ':library', ':MPChartLib', ':recyclerviewenhanced'
 include 'MPChartLib'
+
+include ':swipeMenuListView'

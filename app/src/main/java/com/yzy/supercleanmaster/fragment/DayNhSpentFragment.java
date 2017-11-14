@@ -34,9 +34,7 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 
-/**
- * 我的Fragment类
- */
+
 @SuppressLint("InflateParams")
 public class DayNhSpentFragment extends BaseFragment{
 	private BarChart barChart;
@@ -103,7 +101,7 @@ public class DayNhSpentFragment extends BaseFragment{
 		barChart.getDescription().setEnabled(false);
 		barChart.getAxisLeft().setEnabled(false);
 		barChart.getAxisRight().setEnabled(false);
-		Legend legend = barChart.getLegend();//隐藏比例尺
+		Legend legend = barChart.getLegend();
 		legend.setEnabled(true);
 
 	}

@@ -48,10 +48,12 @@ public class WaterDfActivity extends Activity {
     public ImageView iv_water_43;
     //@InjectView(R.id.tv_life_level)
     public TextView tv_life_level;
+    public TextView tv_life;
     //@InjectView(R.id.tv_life_pa)
     public TextView tv_life_pa;
     //@InjectView(R.id.tv_fire_level)
     public TextView tv_fire_level;
+    public TextView tv_fire;
 
     public  TextView tv_fire_pa;
     public  TextView tv_penl_pa;
@@ -123,6 +125,8 @@ public class WaterDfActivity extends Activity {
                     tv_life_pa.setText(obj.getDouble("lifePa")+"mPa");
                     tv_fire_pa.setText(obj.getDouble("firePa")+"mPa");
                     tv_penl_pa.setText(obj.getDouble("plPa")+"mPa");
+                    tv_fire.setText(obj.getDouble("fireLevel")+"m");
+                    tv_life.setText(obj.getDouble("lifeLevel")+"m");
 
 
                 } catch (JSONException e) {
@@ -158,22 +162,22 @@ public class WaterDfActivity extends Activity {
             }
         //}
         //if(!"".equals(w.getLifePump3())&&w.getLifePump3()!=null){
-        if("1".equals(w.getLifePump3())){
+        /*if("1".equals(w.getLifePump3())){
             iv_water_31.setVisibility(View.VISIBLE);
         }else if("2".equals(w.getLifePump3())){
             iv_water_32.setVisibility(View.VISIBLE);
         }else if("3".equals(w.getLifePump3())){
             iv_water_33.setVisibility(View.VISIBLE);
-        }
+        }*/
         //}
         //if(!"".equals(w.getLifePump4())&&w.getLifePump4()!=null){
-        if("1".equals(w.getLifePump4())){
+        /*if("1".equals(w.getLifePump4())){
             iv_water_41.setVisibility(View.VISIBLE);
         }else if("2".equals(w.getLifePump4())){
             iv_water_42.setVisibility(View.VISIBLE);
         }else if("3".equals(w.getLifePump4())){
             iv_water_43.setVisibility(View.VISIBLE);
-        }
+        }*/
         //}
         Log.e("dfwater","view2");
         tv_life_level.setText(w.getLifewaterLevel()+"m");
@@ -210,6 +214,8 @@ public class WaterDfActivity extends Activity {
         tv_fire_level=(TextView)findViewById(R.id.tv_fire_level);
         tv_fire_pa=(TextView)findViewById(R.id.tv_fire_pa);
         tv_penl_pa=(TextView)findViewById(R.id.tv_penl_pa);
+        tv_life=(TextView)findViewById(R.id.tv_28life_level);
+        tv_fire=(TextView)findViewById(R.id.tv_28fire_level);
         Log.e("dfwater","initData");
 
         String posturls = UrlStone.Url+"waterld.do";

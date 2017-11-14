@@ -310,12 +310,31 @@
             android:layout_height="30dp"
             android:orientation="horizontal">
             <TextView
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="生活水池水位："/>
             <TextView
+                android:layout_weight="1"
                 android:id="@+id/tv_life_level"
                 android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="28楼生活水池水位："/>
+            <TextView
+                android:id="@+id/tv_28life_level"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -327,9 +346,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="水泵压力："/>
             <TextView
                 android:id="@+id/tv_life_pa"
+                android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -343,10 +364,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="消防水池水位："/>
             <TextView
                 android:id="@+id/tv_fire_level"
                 android:layout_marginLeft="10dp"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2.39m"/>
@@ -358,12 +381,31 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="28楼消防水池水位："/>
+            <TextView
+                android:id="@+id/tv_28fire_level"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.39m"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="消防泵压力："/>
             <TextView
                 android:id="@+id/tv_fire_pa"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="2.39m"/>
         </LinearLayout>
         <LinearLayout
@@ -373,12 +415,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="喷淋泵压力："/>
             <TextView
                 android:id="@+id/tv_penl_pa"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="2.39m"/>
         </LinearLayout>
 

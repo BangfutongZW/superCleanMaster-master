@@ -8,452 +8,407 @@ import java.io.Serializable;
  * 2017-7-13
  */
 public class Inspection implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
-	private Integer UnitId;
-	private String Id;	//机器的id
-	private String Name;//机器名字
-	private String Waterlevel;//水位
-	private String Pressure;//压力
-	private String Battery;//蓄电池
-	private String Transformer;//变压器温度
-	private String Voltage;//电压
-	private String Electric;//电流
-	private String ElectricAA;//高压计量
-	private String PowerFactor;//功率因素
-	private String ChilledWater;//空调主机冷冻出水温度
-	private String ChilledWaterA;//冷冻进水温度
-	private String FreezingWaterPressure;//冷冻出水压力
-	private String FreezinginletPressure;//冷冻进水压力
-	private String CoolingWaterTemperature;//冷却出水温度
-	private String CoolingInletTemperature;//冷却进水温度
-	private String CoolingWaterPressure;//冷却出水压力
-	private String CoolingInletPressure;//冷却进水压力
-	private String LineVoltage;//线电压
-	private String LineCurrent;//线电流
-	private String MotorTemperature;//电机温度
-	private String GuideVane;//导叶开启度
-	private String OilTemperature;//油温
-	private String LeaveOil;//压缩机(离心机)油压差
-	private String LeaveExhaustPressure;//压缩机(离心机)排气温度
-	private String Inspiratory;//吸气压力
-	private String Inspiratory1;//吸气压力1
-	private String Inspiratory2;//吸气压力2
-	private String Evaporating;//蒸发温度
-	private String Evaporating1;//蒸发温度1
-	private String Evaporating2;//蒸发温度2
-	private String ExhaustPressure;//排气压力
-	private String ExhaustPressure1;//排气压力1
-	private String ExhaustPressure2;//排气压力2
-	private String Condensing;//冷凝温度
-	private String Condensing1;//冷凝温度1
-	private String Condensing2;//冷凝温度2
-	private String ExhaustTemperature;//排气温度
-	private String ExhaustTemperature1;//排气温度1
-	private String ExhaustTemperature2;//排气温度2
-	private String FuelPressure;//供油压力
-	private String FuelPressure1;//供油压力1
-	private String FuelPressure2;//供油压力2
-	private String PressureDifference;//油压差
-	private String PressureDifference1;//油压差1
-	private String PressureDifference2;//油压差2
-	private String Temperature;//温度
-	private String Humidity;//湿度
-	private String AbnormalNormal;//是否正常
-	private String Reason;//原因
-	private String PatrolMan;//巡查人
-	private String PatrolTime;//巡查的时间
-	private String A;//简写名
-	private String B;//此次
-	private String C;//空
-	private String D;//空
-	
+	private Integer unitId;
+	private String id;	//机器的id
+	private String name;//机器名字
+	private String waterlevel;//水位
+	private String pressure;//压力
+	private String battery;//蓄电池
+	private String transformer;//变压器温度
+	private String voltage;//电压
+	private String electric;//电流
+	private String electricAA;//11#高压计量
+	private String powerFactor;//功率因素
+	private String chilledWater;//空调主机冷冻出水温度
+	private String chilledWaterA;//冷冻进水温度
+	private String freezingWaterPressure;//冷冻出水压力
+	private String freezinginletPressure;//冷冻进水压力
+	private String coolingWaterTemperature;//冷却出水温度
+	private String coolingInletTemperature;//冷却进水温度
+	private String coolingWaterPressure;//冷却出水压力
+	private String coolingInletPressure;//冷却进水压力
+	private String lineVoltage;//线电压
+	private String lineCurrent;//线电流
+	private String motorTemperature;//电机温度
+	private String guideVane;//导叶开启度
+	private String oilTemperature;//油温
+	private String leaveOil;//压缩机(离心机)油压差
+	private String leaveExhaustPressure;//压缩机(离心机)排气温度
+	private String inspiratory;//吸气压力
+	private String inspiratory1;//吸气压力1
+	private String inspiratory2;//吸气压力2
+	private String evaporating;//蒸发温度
+	private String evaporating1;//蒸发温度1
+	private String evaporating2;//蒸发温度2
+	private String exhaustPressure;//排气压力
+	private String exhaustPressure1;//排气压力1
+	private String exhaustPressure2;//排气压力2
+	private String condensing;//冷凝温度
+	private String condensing1;//冷凝温度1
+	private String condensing2;//冷凝温度2
+	private String exhaustTemperature;//排气温度
+	private String exhaustTemperature1;//排气温度1
+	private String exhaustTemperature2;//排气温度2
+	private String fuelPressure;//供油压力
+	private String fuelPressure1;//供油压力1
+	private String fuelPressure2;//供油压力2
+	private String pressureDifference;//油压差
+	private String pressureDifference1;//油压差1
+	private String pressureDifference2;//油压差2
+	private String temperature;//温度
+	private String humidity;//湿度
+	private String abnormalNormal;//是否正常
+	private String reason;//原因
+	private String patrolMan;//巡查人
+	private String patrolTime;//巡查的时间
+	private String a;//简写名
+	private String b;//此次
+	private String c;//空
+	private String d;//空
+	public Integer getUnitId() {
+		return unitId;
+	}
+	public void setUnitId(Integer unitId) {
+		this.unitId = unitId;
+	}
 	public String getId() {
-		return Id;
+		return id;
 	}
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getWaterlevel() {
-		return Waterlevel;
+		return waterlevel;
 	}
 	public void setWaterlevel(String waterlevel) {
-		Waterlevel = waterlevel;
+		this.waterlevel = waterlevel;
 	}
 	public String getPressure() {
-		return Pressure;
+		return pressure;
 	}
 	public void setPressure(String pressure) {
-		Pressure = pressure;
+		this.pressure = pressure;
 	}
 	public String getBattery() {
-		return Battery;
+		return battery;
 	}
 	public void setBattery(String battery) {
-		Battery = battery;
+		this.battery = battery;
 	}
 	public String getTransformer() {
-		return Transformer;
+		return transformer;
 	}
 	public void setTransformer(String transformer) {
-		Transformer = transformer;
+		this.transformer = transformer;
 	}
 	public String getVoltage() {
-		return Voltage;
+		return voltage;
 	}
 	public void setVoltage(String voltage) {
-		Voltage = voltage;
+		this.voltage = voltage;
 	}
 	public String getElectric() {
-		return Electric;
+		return electric;
 	}
 	public void setElectric(String electric) {
-		Electric = electric;
+		this.electric = electric;
+	}
+	public String getElectricAA() {
+		return electricAA;
+	}
+	public void setElectricAA(String electricAA) {
+		this.electricAA = electricAA;
 	}
 	public String getPowerFactor() {
-		return PowerFactor;
+		return powerFactor;
 	}
 	public void setPowerFactor(String powerFactor) {
-		PowerFactor = powerFactor;
+		this.powerFactor = powerFactor;
 	}
 	public String getChilledWater() {
-		return ChilledWater;
+		return chilledWater;
 	}
 	public void setChilledWater(String chilledWater) {
-		ChilledWater = chilledWater;
+		this.chilledWater = chilledWater;
 	}
 	public String getChilledWaterA() {
-		return ChilledWaterA;
+		return chilledWaterA;
 	}
 	public void setChilledWaterA(String chilledWaterA) {
-		ChilledWaterA = chilledWaterA;
+		this.chilledWaterA = chilledWaterA;
 	}
 	public String getFreezingWaterPressure() {
-		return FreezingWaterPressure;
+		return freezingWaterPressure;
 	}
 	public void setFreezingWaterPressure(String freezingWaterPressure) {
-		FreezingWaterPressure = freezingWaterPressure;
+		this.freezingWaterPressure = freezingWaterPressure;
 	}
 	public String getFreezinginletPressure() {
-		return FreezinginletPressure;
+		return freezinginletPressure;
 	}
 	public void setFreezinginletPressure(String freezinginletPressure) {
-		FreezinginletPressure = freezinginletPressure;
+		this.freezinginletPressure = freezinginletPressure;
 	}
 	public String getCoolingWaterTemperature() {
-		return CoolingWaterTemperature;
+		return coolingWaterTemperature;
 	}
 	public void setCoolingWaterTemperature(String coolingWaterTemperature) {
-		CoolingWaterTemperature = coolingWaterTemperature;
+		this.coolingWaterTemperature = coolingWaterTemperature;
 	}
 	public String getCoolingInletTemperature() {
-		return CoolingInletTemperature;
+		return coolingInletTemperature;
 	}
 	public void setCoolingInletTemperature(String coolingInletTemperature) {
-		CoolingInletTemperature = coolingInletTemperature;
+		this.coolingInletTemperature = coolingInletTemperature;
 	}
 	public String getCoolingWaterPressure() {
-		return CoolingWaterPressure;
+		return coolingWaterPressure;
 	}
 	public void setCoolingWaterPressure(String coolingWaterPressure) {
-		CoolingWaterPressure = coolingWaterPressure;
+		this.coolingWaterPressure = coolingWaterPressure;
 	}
 	public String getCoolingInletPressure() {
-		return CoolingInletPressure;
+		return coolingInletPressure;
 	}
 	public void setCoolingInletPressure(String coolingInletPressure) {
-		CoolingInletPressure = coolingInletPressure;
+		this.coolingInletPressure = coolingInletPressure;
+	}
+	public String getLineVoltage() {
+		return lineVoltage;
+	}
+	public void setLineVoltage(String lineVoltage) {
+		this.lineVoltage = lineVoltage;
+	}
+	public String getLineCurrent() {
+		return lineCurrent;
+	}
+	public void setLineCurrent(String lineCurrent) {
+		this.lineCurrent = lineCurrent;
+	}
+	public String getMotorTemperature() {
+		return motorTemperature;
+	}
+	public void setMotorTemperature(String motorTemperature) {
+		this.motorTemperature = motorTemperature;
+	}
+	public String getGuideVane() {
+		return guideVane;
+	}
+	public void setGuideVane(String guideVane) {
+		this.guideVane = guideVane;
+	}
+	public String getOilTemperature() {
+		return oilTemperature;
+	}
+	public void setOilTemperature(String oilTemperature) {
+		this.oilTemperature = oilTemperature;
+	}
+	public String getLeaveOil() {
+		return leaveOil;
+	}
+	public void setLeaveOil(String leaveOil) {
+		this.leaveOil = leaveOil;
+	}
+	public String getLeaveExhaustPressure() {
+		return leaveExhaustPressure;
+	}
+	public void setLeaveExhaustPressure(String leaveExhaustPressure) {
+		this.leaveExhaustPressure = leaveExhaustPressure;
 	}
 	public String getInspiratory() {
-		return Inspiratory;
+		return inspiratory;
 	}
 	public void setInspiratory(String inspiratory) {
-		Inspiratory = inspiratory;
+		this.inspiratory = inspiratory;
+	}
+	public String getInspiratory1() {
+		return inspiratory1;
+	}
+	public void setInspiratory1(String inspiratory1) {
+		this.inspiratory1 = inspiratory1;
+	}
+	public String getInspiratory2() {
+		return inspiratory2;
+	}
+	public void setInspiratory2(String inspiratory2) {
+		this.inspiratory2 = inspiratory2;
 	}
 	public String getEvaporating() {
-		return Evaporating;
+		return evaporating;
 	}
 	public void setEvaporating(String evaporating) {
-		Evaporating = evaporating;
+		this.evaporating = evaporating;
+	}
+	public String getEvaporating1() {
+		return evaporating1;
+	}
+	public void setEvaporating1(String evaporating1) {
+		this.evaporating1 = evaporating1;
+	}
+	public String getEvaporating2() {
+		return evaporating2;
+	}
+	public void setEvaporating2(String evaporating2) {
+		this.evaporating2 = evaporating2;
 	}
 	public String getExhaustPressure() {
-		return ExhaustPressure;
+		return exhaustPressure;
 	}
 	public void setExhaustPressure(String exhaustPressure) {
-		ExhaustPressure = exhaustPressure;
+		this.exhaustPressure = exhaustPressure;
+	}
+	public String getExhaustPressure1() {
+		return exhaustPressure1;
+	}
+	public void setExhaustPressure1(String exhaustPressure1) {
+		this.exhaustPressure1 = exhaustPressure1;
+	}
+	public String getExhaustPressure2() {
+		return exhaustPressure2;
+	}
+	public void setExhaustPressure2(String exhaustPressure2) {
+		this.exhaustPressure2 = exhaustPressure2;
 	}
 	public String getCondensing() {
-		return Condensing;
+		return condensing;
 	}
 	public void setCondensing(String condensing) {
-		Condensing = condensing;
+		this.condensing = condensing;
+	}
+	public String getCondensing1() {
+		return condensing1;
+	}
+	public void setCondensing1(String condensing1) {
+		this.condensing1 = condensing1;
+	}
+	public String getCondensing2() {
+		return condensing2;
+	}
+	public void setCondensing2(String condensing2) {
+		this.condensing2 = condensing2;
 	}
 	public String getExhaustTemperature() {
-		return ExhaustTemperature;
+		return exhaustTemperature;
 	}
 	public void setExhaustTemperature(String exhaustTemperature) {
-		ExhaustTemperature = exhaustTemperature;
+		this.exhaustTemperature = exhaustTemperature;
+	}
+	public String getExhaustTemperature1() {
+		return exhaustTemperature1;
+	}
+	public void setExhaustTemperature1(String exhaustTemperature1) {
+		this.exhaustTemperature1 = exhaustTemperature1;
+	}
+	public String getExhaustTemperature2() {
+		return exhaustTemperature2;
+	}
+	public void setExhaustTemperature2(String exhaustTemperature2) {
+		this.exhaustTemperature2 = exhaustTemperature2;
 	}
 	public String getFuelPressure() {
-		return FuelPressure;
+		return fuelPressure;
 	}
 	public void setFuelPressure(String fuelPressure) {
-		FuelPressure = fuelPressure;
+		this.fuelPressure = fuelPressure;
+	}
+	public String getFuelPressure1() {
+		return fuelPressure1;
+	}
+	public void setFuelPressure1(String fuelPressure1) {
+		this.fuelPressure1 = fuelPressure1;
+	}
+	public String getFuelPressure2() {
+		return fuelPressure2;
+	}
+	public void setFuelPressure2(String fuelPressure2) {
+		this.fuelPressure2 = fuelPressure2;
 	}
 	public String getPressureDifference() {
-		return PressureDifference;
+		return pressureDifference;
 	}
 	public void setPressureDifference(String pressureDifference) {
-		PressureDifference = pressureDifference;
+		this.pressureDifference = pressureDifference;
+	}
+	public String getPressureDifference1() {
+		return pressureDifference1;
+	}
+	public void setPressureDifference1(String pressureDifference1) {
+		this.pressureDifference1 = pressureDifference1;
+	}
+	public String getPressureDifference2() {
+		return pressureDifference2;
+	}
+	public void setPressureDifference2(String pressureDifference2) {
+		this.pressureDifference2 = pressureDifference2;
 	}
 	public String getTemperature() {
-		return Temperature;
+		return temperature;
 	}
 	public void setTemperature(String temperature) {
-		Temperature = temperature;
+		this.temperature = temperature;
 	}
 	public String getHumidity() {
-		return Humidity;
+		return humidity;
 	}
 	public void setHumidity(String humidity) {
-		Humidity = humidity;
+		this.humidity = humidity;
 	}
 	public String getAbnormalNormal() {
-		return AbnormalNormal;
+		return abnormalNormal;
 	}
 	public void setAbnormalNormal(String abnormalNormal) {
-		AbnormalNormal = abnormalNormal;
+		this.abnormalNormal = abnormalNormal;
 	}
 	public String getReason() {
-		return Reason;
+		return reason;
 	}
 	public void setReason(String reason) {
-		Reason = reason;
+		this.reason = reason;
+	}
+	public String getPatrolMan() {
+		return patrolMan;
+	}
+	public void setPatrolMan(String patrolMan) {
+		this.patrolMan = patrolMan;
+	}
+	public String getPatrolTime() {
+		return patrolTime;
+	}
+	public void setPatrolTime(String patrolTime) {
+		this.patrolTime = patrolTime;
 	}
 	public String getA() {
-		return A;
+		return a;
 	}
 	public void setA(String a) {
-		A = a;
+		this.a = a;
 	}
 	public String getB() {
-		return B;
+		return b;
 	}
 	public void setB(String b) {
-		B = b;
+		this.b = b;
 	}
 	public String getC() {
-		return C;
+		return c;
 	}
 	public void setC(String c) {
-		C = c;
+		this.c = c;
 	}
 	public String getD() {
-		return D;
+		return d;
 	}
 	public void setD(String d) {
-		D = d;
+		this.d = d;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-
-	public String getPatrolMan() {
-		return PatrolMan;
-	}
-	public void setPatrolMan(String patrolMan) {
-		PatrolMan = patrolMan;
-	}
-	public String getPatrolTime() {
-		return PatrolTime;
-	}
-	public void setPatrolTime(String patrolTime) {
-		PatrolTime = patrolTime;
-	}
-	public Integer getUnitId() {
-		return UnitId;
-	}
-	public void setUnitId(Integer unitId) {
-		UnitId = unitId;
-	}
-	public String getInspiratory2() {
-		return Inspiratory2;
-	}
-	public void setInspiratory2(String inspiratory2) {
-		Inspiratory2 = inspiratory2;
-	}
-	public String getInspiratory1() {
-		return Inspiratory1;
-	}
-	public void setInspiratory1(String inspiratory1) {
-		Inspiratory1 = inspiratory1;
-	}
-	public String getEvaporating2() {
-		return Evaporating2;
-	}
-	public void setEvaporating2(String evaporating2) {
-		Evaporating2 = evaporating2;
-	}
-	public String getEvaporating1() {
-		return Evaporating1;
-	}
-	public void setEvaporating1(String evaporating1) {
-		Evaporating1 = evaporating1;
-	}
-	public String getExhaustPressure1() {
-		return ExhaustPressure1;
-	}
-	public void setExhaustPressure1(String exhaustPressure1) {
-		ExhaustPressure1 = exhaustPressure1;
-	}
-	public String getExhaustPressure2() {
-		return ExhaustPressure2;
-	}
-	public void setExhaustPressure2(String exhaustPressure2) {
-		ExhaustPressure2 = exhaustPressure2;
-	}
-	public String getCondensing2() {
-		return Condensing2;
-	}
-	public void setCondensing2(String condensing2) {
-		Condensing2 = condensing2;
-	}
-	public String getCondensing1() {
-		return Condensing1;
-	}
-	public void setCondensing1(String condensing1) {
-		Condensing1 = condensing1;
-	}
-	public String getExhaustTemperature2() {
-		return ExhaustTemperature2;
-	}
-	public void setExhaustTemperature2(String exhaustTemperature2) {
-		ExhaustTemperature2 = exhaustTemperature2;
-	}
-	public String getExhaustTemperature1() {
-		return ExhaustTemperature1;
-	}
-	public void setExhaustTemperature1(String exhaustTemperature1) {
-		ExhaustTemperature1 = exhaustTemperature1;
-	}
-	public String getFuelPressure2() {
-		return FuelPressure2;
-	}
-	public void setFuelPressure2(String fuelPressure2) {
-		FuelPressure2 = fuelPressure2;
-	}
-	public String getFuelPressure1() {
-		return FuelPressure1;
-	}
-	public void setFuelPressure1(String fuelPressure1) {
-		FuelPressure1 = fuelPressure1;
-	}
-	public String getPressureDifference1() {
-		return PressureDifference1;
-	}
-	public void setPressureDifference1(String pressureDifference1) {
-		PressureDifference1 = pressureDifference1;
-	}
-	public String getPressureDifference2() {
-		return PressureDifference2;
-	}
-	public void setPressureDifference2(String pressureDifference2) {
-		PressureDifference2 = pressureDifference2;
-	}
-	public String getLeaveExhaustPressure() {
-		return LeaveExhaustPressure;
-	}
-	public void setLeaveExhaustPressure(String leaveExhaustPressure) {
-		LeaveExhaustPressure = leaveExhaustPressure;
-	}
-	public String getLineVoltage() {
-		return LineVoltage;
-	}
-	public void setLineVoltage(String lineVoltage) {
-		LineVoltage = lineVoltage;
-	}
-	public String getLineCurrent() {
-		return LineCurrent;
-	}
-	public void setLineCurrent(String lineCurrent) {
-		LineCurrent = lineCurrent;
-	}
-	public String getMotorTemperature() {
-		return MotorTemperature;
-	}
-	public void setMotorTemperature(String motorTemperature) {
-		MotorTemperature = motorTemperature;
-	}
-	public String getGuideVane() {
-		return GuideVane;
-	}
-	public void setGuideVane(String guideVane) {
-		GuideVane = guideVane;
-	}
-	public String getOilTemperature() {
-		return OilTemperature;
-	}
-	public void setOilTemperature(String oilTemperature) {
-		OilTemperature = oilTemperature;
-	}
-	public String getLeaveOil() {
-		return LeaveOil;
-	}
-	public void setLeaveOil(String leaveOil) {
-		LeaveOil = leaveOil;
-	}
-	public String getElectricAA() {
-		return ElectricAA;
-	}
-	public void setElectricAA(String electricAA) {
-		ElectricAA = electricAA;
-	}
-	
-	@Override
-	public String toString() {
-		return "Inspection [UnitId=" + UnitId + ", Id=" + Id + ", Name=" + Name
-				+ ", Waterlevel=" + Waterlevel + ", Pressure=" + Pressure
-				+ ", Battery=" + Battery + ", Transformer=" + Transformer
-				+ ", Voltage=" + Voltage + ", Electric=" + Electric
-				+ ", ElectricAA=" + ElectricAA + ", ElectricAAA=" 
-				+ ", PowerFactor=" + PowerFactor + ", ChilledWater="
-				+ ChilledWater + ", ChilledWaterA=" + ChilledWaterA
-				+ ", FreezingWaterPressure=" + FreezingWaterPressure
-				+ ", FreezinginletPressure=" + FreezinginletPressure
-				+ ", CoolingWaterTemperature=" + CoolingWaterTemperature
-				+ ", CoolingInletTemperature=" + CoolingInletTemperature
-				+ ", CoolingWaterPressure=" + CoolingWaterPressure
-				+ ", CoolingInletPressure=" + CoolingInletPressure
-				+ ", LineVoltage=" + LineVoltage + ", LineCurrent="
-				+ LineCurrent + ", MotorTemperature=" + MotorTemperature
-				+ ", GuideVane=" + GuideVane + ", OilTemperature="
-				+ OilTemperature + ", LeaveOil=" + LeaveOil
-				+ ", LeaveExhaustPressure=" + LeaveExhaustPressure
-				+ ", Inspiratory=" + Inspiratory + ", Inspiratory1="
-				+ Inspiratory1 + ", Inspiratory2=" + Inspiratory2
-				+ ", Evaporating=" + Evaporating + ", Evaporating1="
-				+ Evaporating1 + ", Evaporating2=" + Evaporating2
-				+ ", ExhaustPressure=" + ExhaustPressure
-				+ ", ExhaustPressure1=" + ExhaustPressure1
-				+ ", ExhaustPressure2=" + ExhaustPressure2 + ", Condensing="
-				+ Condensing + ", Condensing1=" + Condensing1
-				+ ", Condensing2=" + Condensing2 + ", ExhaustTemperature="
-				+ ExhaustTemperature + ", ExhaustTemperature1="
-				+ ExhaustTemperature1 + ", ExhaustTemperature2="
-				+ ExhaustTemperature2 + ", FuelPressure=" + FuelPressure
-				+ ", FuelPressure1=" + FuelPressure1 + ", FuelPressure2="
-				+ FuelPressure2 + ", PressureDifference=" + PressureDifference
-				+ ", PressureDifference1=" + PressureDifference1
-				+ ", PressureDifference2=" + PressureDifference2
-				+ ", Temperature=" + Temperature + ", Humidity=" + Humidity
-				+ ", AbnormalNormal=" + AbnormalNormal + ", Reason=" + Reason
-				+ ", PatrolMan=" + PatrolMan + ", PatrolTime=" + PatrolTime
-				+ ", A=" + A + ", B=" + B + ", C=" + C + ", D=" + D + "]";
 	}
 }

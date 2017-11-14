@@ -10,7 +10,6 @@ import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +22,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.yzy.supercleanmaster.R;
-import com.yzy.supercleanmaster.dialogs.AlertDialogFragment;
-import com.yzy.supercleanmaster.dialogs.DialogUtil;
 import com.yzy.supercleanmaster.model.Inspection;
 import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.utils.HttpTool;
@@ -35,15 +32,14 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class CheakMianActivity extends Activity {
     private RelativeLayout rl_check_sm;
     private TextView tv_xjh;
     private TextView tv_yxj;
+    private TextView tv_xjsj;
     private RelativeLayout rl[]=new RelativeLayout[46];
     private EditText et[]=new EditText[46];
 
@@ -57,24 +53,53 @@ public class CheakMianActivity extends Activity {
     private CheckBox check;
     private EditText et_beizhu;
     private int powerCheck=0;
-    private List<String> slist;
-    private List<String> alist=new ArrayList<String>();
+    //private List<String> slist;
+    //private List<String> alist=new ArrayList<String>();
     Handler mhandler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
             String msgStr=(String) msg.obj;
-            slist=new ArrayList<String>();
-            if (msgStr != null) {
+            if (msgStr != null&&msgStr.length()>10) {
                 msgStr = msgStr.replaceAll("\ufeff", "");
                 msgStr = msgStr.replace("\\", "");
                 Log.e("checkMain",msgStr);
 
                 msgStr = msgStr.substring(msgStr.indexOf("[")+1,msgStr.lastIndexOf("]"));
-                String[] allstr=msgStr.split(",");
+                try {
+                    JSONObject obj = new JSONObject(msgStr);
+                    String xjh=obj.getString("data");
+                    String xjsj=obj.getString("endata");
+                    checkId=checkId+" "+xjh;
+                    tv_xjh.setText(checkId);
+                    tv_xjsj.setText(xjh+"--"+xjsj);
+                    getNotList();
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+                /*String[] allstr=msgStr.split(",");
                 for (String str:allstr){
                     slist.add(str.replace("\"",""));
                 }
-                Log.e("checkMain","size"+slist.size());
+                Log.e("checkMain","size"+slist.size());*/
+            }else{
+                tv_yxj.setText("当前无巡检计划，无需扫码！");
+            }
+            super.handleMessage(msg);
+        }
+    };
+    Handler dhandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            String msgStr=(String) msg.obj;
+            if (msgStr != null&&msgStr.length()>10) {
+                msgStr = msgStr.replaceAll("\ufeff", "");
+                msgStr = msgStr.replace("\\", "");
+                Log.e("checkMain",msgStr);
+
+                msgStr = msgStr.substring(msgStr.indexOf("[")+1,msgStr.lastIndexOf("]"));
+                tv_yxj.setText(msgStr);
+            }else{
+                Toast.makeText(getApplicationContext(), "当前无巡检计划", Toast.LENGTH_SHORT).show();
             }
             super.handleMessage(msg);
         }
@@ -93,7 +118,7 @@ public class CheakMianActivity extends Activity {
                 if("ok".equals(result)){
                     Toast.makeText(getApplicationContext(), "提交成功", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "提交失败，请检查网络", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "提交失败", Toast.LENGTH_SHORT).show();
                 }
             }catch (JSONException e){
                 e.printStackTrace();
@@ -136,7 +161,6 @@ public class CheakMianActivity extends Activity {
                 rl[17]=(RelativeLayout)v.findViewById(R.id.rl_17);
                 rl[18]=(RelativeLayout)v.findViewById(R.id.rl_18);
                 rl[19]=(RelativeLayout)v.findViewById(R.id.rl_19);
-                //rl[20]=(RelativeLayout)v.findViewById(R.id.rl_20);
                 rl[21]=(RelativeLayout)v.findViewById(R.id.rl_21);
                 rl[22]=(RelativeLayout)v.findViewById(R.id.rl_22);
                 rl[23]=(RelativeLayout)v.findViewById(R.id.rl_23);
@@ -150,12 +174,6 @@ public class CheakMianActivity extends Activity {
                 rl[31]=(RelativeLayout)v.findViewById(R.id.rl_31);
                 rl[32]=(RelativeLayout)v.findViewById(R.id.rl_32);
                 rl[33]=(RelativeLayout)v.findViewById(R.id.rl_33);
-                /*rl[34]=(RelativeLayout)v.findViewById(R.id.rl_34);
-                rl[35]=(RelativeLayout)v.findViewById(R.id.rl_35);
-                rl[36]=(RelativeLayout)v.findViewById(R.id.rl_36);*/
-               /* rl[37]=(RelativeLayout)v.findViewById(R.id.rl_37);
-                rl[38]=(RelativeLayout)v.findViewById(R.id.rl_38);
-                rl[39]=(RelativeLayout)v.findViewById(R.id.rl_39);*/
                 rl[40]=(RelativeLayout)v.findViewById(R.id.rl_40);
                 rl[41]=(RelativeLayout)v.findViewById(R.id.rl_41);
                 rl[42]=(RelativeLayout)v.findViewById(R.id.rl_42);
@@ -196,12 +214,6 @@ public class CheakMianActivity extends Activity {
                 et[31]=(EditText)v.findViewById(R.id.et_31);
                 et[32]=(EditText)v.findViewById(R.id.et_32);
                 et[33]=(EditText)v.findViewById(R.id.et_33);
-                /*et[34]=(EditText)v.findViewById(R.id.et_34);
-                et[35]=(EditText)v.findViewById(R.id.et_35);
-                et[36]=(EditText)v.findViewById(R.id.et_36);*/
-                /*et[37]=(EditText)v.findViewById(R.id.et_37);
-                et[38]=(EditText)v.findViewById(R.id.et_38);
-                et[39]=(EditText)v.findViewById(R.id.et_39);*/
                 et[40]=(EditText)v.findViewById(R.id.et_40);
                 et[41]=(EditText)v.findViewById(R.id.et_41);
                 et[42]=(EditText)v.findViewById(R.id.et_42);
@@ -252,8 +264,6 @@ public class CheakMianActivity extends Activity {
                         rl[25].setVisibility(View.VISIBLE);
                         rl[28].setVisibility(View.VISIBLE);
                         rl[31].setVisibility(View.VISIBLE);
-                        //rl[34].setVisibility(View.VISIBLE);
-                        //rl[37].setVisibility(View.VISIBLE);
                         rl[40].setVisibility(View.VISIBLE);
                         if("DF-KT-40-003".equals(smId)) {
                             rl[23].setVisibility(View.VISIBLE);
@@ -264,10 +274,6 @@ public class CheakMianActivity extends Activity {
                             rl[30].setVisibility(View.VISIBLE);
                             rl[32].setVisibility(View.VISIBLE);
                             rl[33].setVisibility(View.VISIBLE);
-                            //rl[35].setVisibility(View.VISIBLE);
-                            //rl[36].setVisibility(View.VISIBLE);
-                            //rl[38].setVisibility(View.VISIBLE);
-                            //rl[39].setVisibility(View.VISIBLE);
                             rl[41].setVisibility(View.VISIBLE);
                             rl[42].setVisibility(View.VISIBLE);
                         }else{
@@ -276,7 +282,6 @@ public class CheakMianActivity extends Activity {
                             rl[17].setVisibility(View.VISIBLE);
                             rl[18].setVisibility(View.VISIBLE);
                             rl[19].setVisibility(View.VISIBLE);
-                            //rl[20].setVisibility(View.VISIBLE);
                             rl[21].setVisibility(View.VISIBLE);
                         }
                     }else if("电梯".equals(belong)){
@@ -303,9 +308,9 @@ public class CheakMianActivity extends Activity {
                     build.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Log.e("check","1111");
                             Inspection i=new Inspection();
                             i.setName(name);
+                            i.setC("1");
                             i.setA(finalBelong);
                             i.setId(smId);
                             i.setPatrolTime(checkTime);
@@ -324,12 +329,6 @@ public class CheakMianActivity extends Activity {
                         }else if("发电机".equals(finalBelong)){
                             i.setBattery(et[2].getText().toString());
                         }else if("强电".equals(finalBelong)){
-                                alist.add(name);
-                                if(equalList(alist,slist)){
-                                    rl_sub.setEnabled(true);
-                                }else {
-                                    rl_sub.setEnabled(false);
-                                };
                             i.setTransformer(et[3].getText().toString());
                             i.setVoltage(et[4].getText().toString());
                             i.setElectric(et[5].getText().toString());
@@ -349,7 +348,6 @@ public class CheakMianActivity extends Activity {
                                 i.setCondensing(et[31].getText().toString());
                                 i.setPressureDifference(et[40].getText().toString());
                             if("DF-KT-40-003".equals(smId)) {
-
                                 i.setInspiratory1(et[23].getText().toString());
                                 i.setInspiratory2(et[24].getText().toString());
                                 i.setEvaporating1(et[26].getText().toString());
@@ -373,15 +371,13 @@ public class CheakMianActivity extends Activity {
                             i.setHumidity(et[44].getText().toString());
                         }else if("计量柜".equals(finalBelong)){
                                 i.setElectricAA(et[45].getText().toString());
+
                             }
+
                             Log.e("check","1333");
                             String temp="";
                             IList.add(i);
-                            for (Inspection il:IList) {
-                                temp+=il.getName();
-                            }
-                            Log.e("check","1444");
-                            tv_yxj.setText(temp);
+
 
                     }
                 });
@@ -421,17 +417,21 @@ public class CheakMianActivity extends Activity {
 
     private void initview() {
         SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat f2=new SimpleDateFormat("yyyy-MM-dd");
         checkTime=f.format(new Date());
-        checkId="xj"+System.currentTimeMillis();
+        checkId=f2.format(new Date());
         SharedPreferences sp=getSharedPreferences("saveuser", Context.MODE_WORLD_READABLE);
         userName=sp.getString("USER_PERSON","");
         IList=new ArrayList<Inspection>();
         rl_check_sm=(RelativeLayout)findViewById(R.id.rl_check_sm);
         tv_xjh=(TextView)findViewById(R.id.tv_xjh);
-        tv_xjh.setText(checkId);
         tv_yxj=(TextView)findViewById(R.id.tv_yxj);
         rl_sub=(Button)findViewById(R.id.rl_sub);
-        getJXlist();
+        tv_xjsj=(TextView)findViewById(R.id.tv_xjsj);
+        getsblist();
+        //*************检查待巡检设备
+
+
         rl_check_sm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -444,7 +444,7 @@ public class CheakMianActivity extends Activity {
             public void onClick(View v) {
                 Gson gs=new Gson();
                 for (Inspection i:IList) {
-                    String posturls = UrlStone.Url+"Inspectiold.do";
+                    String posturls = UrlStone.Url+"InspectioAld.do";
                     HttpTool tol = new HttpTool(posturls);
                     tol.setBody("jsonstr="+gs.toJson(i));
                     //tol.setBody("jsonstr="+jsonParams.toString());
@@ -459,13 +459,16 @@ public class CheakMianActivity extends Activity {
         });
     }
 
-    private void getJXlist() {
-        Log.e("checkMain","1");
-        Calendar cal=Calendar.getInstance();
-        int month=cal.get(Calendar.MONTH)+1;
-        String posturls = UrlStone.Url+"planJxld.do";
-        posturls=posturls+"?month="+month;
+    private void getNotList() {
+        String posturls = UrlStone.Url+"queryNotCheckld.do";
         Log.e("checkMain",posturls);
+        HttpTool tol = new HttpTool(posturls);
+        tol.setHandler(dhandler);
+        new Thread(tol).start();
+    }
+
+    private void getsblist() {
+        String posturls = UrlStone.Url+"querycheckplanld.do";
         HttpTool tol = new HttpTool(posturls);
         tol.setHandler(mhandler);
         new Thread(tol).start();

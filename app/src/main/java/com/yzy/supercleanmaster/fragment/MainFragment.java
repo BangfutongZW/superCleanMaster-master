@@ -22,26 +22,18 @@ import com.jauker.widget.BadgeView;
 import com.umeng.update.UmengUpdateAgent;
 import com.yzy.supercleanmaster.R;
 import com.yzy.supercleanmaster.base.BaseFragment;
-import com.yzy.supercleanmaster.model.AlarmInfo;
 import com.yzy.supercleanmaster.model.Nownh;
-import com.yzy.supercleanmaster.model.SDCardInfo;
 import com.yzy.supercleanmaster.model.UrlStone;
 import com.yzy.supercleanmaster.ui.AlarmListActivity;
 import com.yzy.supercleanmaster.ui.ApdActivity;
 import com.yzy.supercleanmaster.ui.CheckActivity;
-import com.yzy.supercleanmaster.ui.DefineActivity;
 import com.yzy.supercleanmaster.ui.GpdActivity;
-import com.yzy.supercleanmaster.ui.LoginActivity;
-import com.yzy.supercleanmaster.ui.NhActivity;
 import com.yzy.supercleanmaster.ui.NhBasicActivity;
-import com.yzy.supercleanmaster.ui.RepotActivity;
 import com.yzy.supercleanmaster.ui.SaomActivity;
 import com.yzy.supercleanmaster.ui.WaterActivity;
 import com.yzy.supercleanmaster.ui.WaterDfActivity;
 import com.yzy.supercleanmaster.utils.AppUtil;
-import com.yzy.supercleanmaster.utils.Constants;
 import com.yzy.supercleanmaster.utils.HttpTool;
-import com.yzy.supercleanmaster.utils.StorageUtil;
 import com.yzy.supercleanmaster.widget.circleprogress.ArcProgress;
 import com.zjf.rieffect.RieffectLayout;
 
@@ -58,7 +50,6 @@ import java.util.TimerTask;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
 
 
 public class MainFragment extends BaseFragment {

@@ -53,7 +53,7 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="1号水泵"/>
+                android:text="1号生活水泵"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -115,7 +115,7 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="2号水泵"/>
+                android:text="2号生活水泵"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -320,6 +320,7 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -351,6 +352,8 @@
                 android:layout_height="wrap_content"
                 android:text="2.39m"/>
         </LinearLayout>
+
+
 
 
     </LinearLayout>

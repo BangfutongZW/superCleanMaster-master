@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_history_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_back"
+    tools:context="com.yzy.supercleanmaster.ui.MainHistoryListActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginRight="1dp"
+               android:background="@color/white"
+               android:gravity="center_vertical"
+               android:layout_weight="1">
+               <TextView
+                   android:id="@+id/tv_h1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="设备名称:"/>
+               <TextView
+                   android:id="@+id/tv_h_1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_toRightOf="@+id/tv_h1"
+                   android:textColor="@color/label_text" />
+
+           </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="归属名称:"/>
+            <TextView
+                android:id="@+id/tv_h_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_h2"
+                android:textColor="@color/label_text" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="1dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_h3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="型号:"/>
+                <TextView
+                    android:id="@+id/tv_h_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_h3"
+                    android:textColor="@color/label_text" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_h4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="使用日期:"/>
+                <TextView
+                    android:id="@+id/tv_h_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_h4"
+                    android:textColor="@color/label_text" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_h5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="折旧年限:"/>
+            <TextView
+                android:id="@+id/tv_h_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_h5"
+                android:textColor="@color/label_text" />
+
+        </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_h6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="运行状况:"/>
+                <TextView
+                    android:id="@+id/tv_h_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_h6"
+                    android:textColor="@color/label_text" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="1dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_h7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关联设备:"/>
+                <TextView
+                    android:id="@+id/tv_h_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_h7"
+                    android:textColor="@color/label_text" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_h8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="责任人:"/>
+                <TextView
+                    android:id="@+id/tv_h_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_h8"
+                    android:textColor="@color/label_text" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主要参数:"/>
+            <TextView
+                android:id="@+id/tv_h_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/label_text" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/blue_200"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:text="保养记录"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:layout_marginRight="1dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="日期"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:layout_marginRight="1dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="内容"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:layout_marginRight="1dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="保养人"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/ls_history_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fastScrollEnabled="true"
+        android:layout_marginTop="1dp"
+        android:focusable="true"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:fitsSystemWindows="true"
+        android:scrollbarStyle="outsideOverlay"
+        />
+
+</LinearLayout>

@@ -80,31 +80,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/label_text"
-                    android:text="250"/>
+                    android:text="0"/>
                 <TextView
                     android:id="@+id/tv_apd_ldj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/label_text"
-                    android:text="481.5"/>
+                    android:text="0"/>
                 <TextView
                     android:id="@+id/tv_apd_ldc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/label_text"
-                    android:text="485.4"/>
+                    android:text="0"/>
                 <TextView
                     android:id="@+id/tv_apd_lqj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/label_text"
-                    android:text="483.7"/>
+                    android:text="0"/>
                 <TextView
                     android:id="@+id/tv_apd_lqc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/label_text"
-                    android:text="78"/>
+                    android:text="0"/>
 
             </LinearLayout>
         </LinearLayout>
